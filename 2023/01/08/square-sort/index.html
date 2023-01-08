@@ -11,7 +11,7 @@
   
   <title>
     
-      通过双指针思想解决有序数组的平方排序问题 
+      利用双指针思想解决有序数组的平方排序问题 
       
       
       |
@@ -151,7 +151,7 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">通过双指针思想解决有序数组的平方排序问题</div>
+      <div class="post-title">利用双指针思想解决有序数组的平方排序问题</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
@@ -199,7 +199,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(nums[low] * nums[low] &gt; nums[high] * nums[high])&#123;</span><br><span class="line">  result[index--] = nums[low] * nums[low++];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>故最终完整代码为</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* <span class="title function_">sortedSquares</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> numsSize, <span class="type">int</span>* returnSize)</span>&#123;</span><br><span class="line">	<span class="type">int</span>* result = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * numsSize);</span><br><span class="line">	<span class="type">int</span> low = <span class="number">0</span>, high = numsSize - <span class="number">1</span>, index = numsSize - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(low &lt;= high)&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums[low] * nums[low] &lt; nums[high] * nums[high])&#123;</span><br><span class="line">  result[index--] = nums[high] * nums[high--];</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">      result[index--] = nums[low] * nums[low++];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  *returnSize = numsSize;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* <span class="title function_">sortedSquares</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> numsSize, <span class="type">int</span>* returnSize)</span>&#123;</span><br><span class="line">    <span class="type">int</span>* result = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * numsSize);</span><br><span class="line">    <span class="type">int</span> low = <span class="number">0</span>, high = numsSize - <span class="number">1</span>, index = numsSize - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(low &lt;= high)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[low] * nums[low] &lt; nums[high] * nums[high])&#123;</span><br><span class="line">            result[index--] = nums[high] * nums[high--];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            result[index--] = nums[low] * nums[low++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    *returnSize = numsSize;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Python下代码为</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">sortedSquares</span>(<span class="params">self, nums</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sorted</span>([i**<span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> nums])</span><br></pre></td></tr></table></figure>
@@ -249,6 +249,11 @@
               
           </div>
           <div class="post-foot-prev">
+            
+              <a href="/2023/01/08/rotate-array/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
             
           </div>
         </div>
@@ -549,7 +554,7 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E9%80%9A%E8%BF%87%E5%8F%8C%E6%8C%87%E9%92%88%E6%80%9D%E6%83%B3%E8%A7%A3%E5%86%B3%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98 + '&url=' + http%3A%2F%2Fexample.com%2F2023%2F01%2F08%2Fsquare-sort%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E5%88%A9%E7%94%A8%E5%8F%8C%E6%8C%87%E9%92%88%E6%80%9D%E6%83%B3%E8%A7%A3%E5%86%B3%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98 + '&url=' + http%3A%2F%2Fexample.com%2F2023%2F01%2F08%2Fsquare-sort%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         

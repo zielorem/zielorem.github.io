@@ -11,7 +11,7 @@
   
   <title>
     
-      Tag 
+      数组的翻转与轮转 
       
       
       |
@@ -140,21 +140,152 @@
 
 
 
-  <!-- 标签页 url形式：https://yoursite/tags/ -->
-  <div class="container tag-index">
-    <div>
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">7</span></li></ul>
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">数组的翻转与轮转</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+          2023-01-08 14:47:42
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="Tags"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/algorithm/" title="algorithm">
+                    #algorithm
+                  </a>
+                </span>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/python/" title="python">
+                    #python
+                  </a>
+                </span>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/C/" title="C">
+                    #C
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>![default_status][default_status.png]</p>
+<p>当前存在一个数组<code>nums</code>，编写算法将数组中的$n$个元素向右轮转$k$个位置（$k$为非负数）。</p>
+<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>为了避免直接轮转导致的数组元素覆盖，可以创建新的数组从而将中的元素存储至正确的位置，尔后再将其赋值至原数组中。在轮转过程中，当数组元素向右移动$k$个位置后，数组末端的$k\mod n$个元素将移动至数组首端，而剩余元素则向后移动$k\mod n$个位置。因此，可以通过翻转的方式将数组末端的元素移动至数组首端，而同时数组首端的元素将被翻转至数组末端。</p>
+<ul>
+<li>将所有数组元素翻转</li>
+</ul>
+<p>![step1][step1]</p>
+<ul>
+<li>翻转$[0, k\mod n-1)]$区间内的元素</li>
+</ul>
+<p>![step2][step2]</p>
+<ul>
+<li>翻转$[k\mod n, n-1]$区间内的元素</li>
+</ul>
+<p>![step3][step3]</p>
+<h1 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h1><p>翻转操作本质上为互换操作。因此，需要定义一个临时变量<code>temp</code>用于替换操作。互换函数为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>* a, <span class="type">int</span>* b)</span>&#123;</span><br><span class="line">  <span class="type">int</span> temp = *a;</span><br><span class="line">  *a = *b, *b = t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>持有互换函数后，需在翻转函数中确定互换的元素对象。翻转函数为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">reverse</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> low, <span class="type">int</span> high)</span>&#123;</span><br><span class="line">  <span class="keyword">while</span>(low &lt; high)&#123;</span><br><span class="line">    swap(&amp;nums[low], &amp;nums[high]);</span><br><span class="line">    low++;</span><br><span class="line">    high--;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因此，根据分析结果，轮转函数为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> numsSize, <span class="type">int</span> k)</span>&#123;</span><br><span class="line">  k %= numsSize;  <span class="comment">//避免k值大于数组长度</span></span><br><span class="line">  reverse(nums, <span class="number">0</span>, numsSize - <span class="number">1</span>);</span><br><span class="line">  reverse(nums, <span class="number">0</span>, k - <span class="number">1</span>);</span><br><span class="line">  reverse(nums, k, numsSize - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>完整代码为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>* a, <span class="type">int</span>* b)</span>&#123;</span><br><span class="line">  <span class="type">int</span> temp = *a;</span><br><span class="line">  *a = *b, *b = t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">reverse</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> low, <span class="type">int</span> high)</span>&#123;</span><br><span class="line">  <span class="keyword">while</span>(low &lt; high)&#123;</span><br><span class="line">    swap(&amp;nums[low], &amp;nums[high]);</span><br><span class="line">    low++;</span><br><span class="line">    high--;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">rotate</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> numsSize, <span class="type">int</span> k)</span>&#123;</span><br><span class="line">  k %= numsSize;</span><br><span class="line">  reverse(nums, <span class="number">0</span>, numsSize - <span class="number">1</span>);</span><br><span class="line">  reverse(nums, <span class="number">0</span>, k - <span class="number">1</span>);</span><br><span class="line">  reverse(nums, k, numsSize - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Python下该算法代码为</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">rotate</span>(<span class="params">self, nums, k</span>):</span><br><span class="line">    n = <span class="built_in">len</span>(nums)</span><br><span class="line">    k %= n</span><br><span class="line">    nums[:] = nums[::-<span class="number">1</span>]</span><br><span class="line">    nums[:k] = nums[:k][::-<span class="number">1</span>]</span><br><span class="line">    nums[k:] = nums[k:][::-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+<p>更好的方法为通过<code>slice</code>操作拼接数组</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">rotate</span>(<span class="params">self, nums, k</span>):</span><br><span class="line">    n = <span class="built_in">len</span>(nums)</span><br><span class="line">    k %= n</span><br><span class="line">    nums[:] = nums[-k:] + nums[:-k]</span><br><span class="line">      </span><br></pre></td></tr></table></figure>
+
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2023/01/08/square-sort/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+              2023-01-08 14:47:42
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="Tags"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/algorithm/" title="algorithm">
+                        #algorithm
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/python/" title="python">
+                        #python
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/C/" title="C">
+                        #C
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-text">问题分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0"><span class="toc-text">算法描述</span></a></li></ol>
+      
     </div>
   </div>
-  
 
   
+<script src="/js/catalog.js"></script>
 
-  
 
-  
 
-  
+
+    
+  </div>
+
 
         
 <div class="footer">
@@ -428,12 +559,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + tags + '&url=' + http%3A%2F%2Fexample.com%2Ftags%2Findex.html + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%95%B0%E7%BB%84%E7%9A%84%E7%BF%BB%E8%BD%AC%E4%B8%8E%E8%BD%AE%E8%BD%AC + '&url=' + http%3A%2F%2Fexample.com%2F2023%2F01%2F08%2Frotate-array%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/tags/index.html" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2023/01/08/rotate-array/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
