@@ -11,7 +11,7 @@
   
   <title>
     
-      Python中的赋值、视图、副本与拷贝 
+      Encantado de conocerte en el mundo 
       
       
       |
@@ -151,125 +151,34 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">Python中的赋值、视图、副本与拷贝</div>
+      <div class="post-title">Encantado de conocerte en el mundo</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2022-10-19 14:47:15
+          2022-09-18 17:55:43
         </span>
         
-              <span class="post-tags">
-                <i class="iconfont icon-tags mr-10" title="Tags"></i>
-                
-                <span class="span--tag mr-8">
-                  <a href="/tags/python/" title="python">
-                    #python
-                  </a>
-                </span>
-                
-              </span>
-          
       </div>
       <div class="markdown-body">
-        <p>数组对象在创建后会存在唯一标识数组内容的通用标识符（即id值）与其数组内容在内存中的存储地址，通过不同方式创建基于原数组的新数组会在这两个属性的基础上产生不同的结果。</p>
-<h1 id="赋值与无拷贝"><a href="#赋值与无拷贝" class="headerlink" title="赋值与无拷贝"></a>赋值与无拷贝</h1><p>将原数组直接赋值给新数组后，新数组同原数组的标识符与存储地址一致。因此，新数组可以粗略理解为完全通过原数组访问。因此在直接赋值过程中并未创建拷贝。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]])</span><br><span class="line">b = a  <span class="comment"># a直接赋值给b</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(a) == <span class="built_in">id</span>(b))  <span class="comment"># True，标识符一致</span></span><br><span class="line"><span class="built_in">print</span>(a.data == b.data)</span><br><span class="line"><span class="comment"># True，在物理内存中指向的存储地址一致</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">is</span> b)  <span class="comment"># True，a与b实际上是同一个数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 任一数组的变化会直接同步在其他数组上</span></span><br><span class="line"><span class="built_in">print</span>(a.shape)</span><br><span class="line">b.shape = (<span class="number">3</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(a.shape == b.shape)  <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<h1 id="视图与浅拷贝"><a href="#视图与浅拷贝" class="headerlink" title="视图与浅拷贝"></a>视图与浅拷贝</h1><p>在numpy中对原数组(ndarray)进行切片操作或通过<code>view()</code>方法创建视图后，新数组同原数组的存储地址一致但标识符不一致。介于numpy在进行切片操作时直接操作了原数组，产生的新数组虽变更了标识符，但实际将原数组所在内存地址引用并赋值给了新数组，因此新数组仍基于原数组的存储地址进行内容访问。因此，修改新数组中的数据内容会直接影响并同步给原数组，但诸如变形之类的操作则不会。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]])</span><br><span class="line">b = a[:]  <span class="comment"># 创建基于a的切片</span></span><br><span class="line">c = a.view()  <span class="comment"># 创建基于a的视图</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(a) == <span class="built_in">id</span>(b) == <span class="built_in">id</span>(c))  <span class="comment"># False，标识符不一致</span></span><br><span class="line"><span class="built_in">print</span>(a.data == b.data == c.data)</span><br><span class="line"><span class="comment"># True，在物理内存中指向的存储地址一致</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">is</span> b <span class="keyword">is</span> c)  <span class="comment"># False，a、b、c不是同一个数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对数组进行赋值操作会影响其他数组</span></span><br><span class="line">a[<span class="number">0</span>, <span class="number">2</span>] = <span class="number">4</span></span><br><span class="line"><span class="built_in">print</span>(b[<span class="number">0</span>, <span class="number">2</span>] == c[<span class="number">0</span>, <span class="number">2</span>] == <span class="number">4</span>)  <span class="comment"># True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对数组进行变形操作不会影响其他数组</span></span><br><span class="line"><span class="built_in">print</span>(a.shape)</span><br><span class="line">b.shape = (<span class="number">3</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(a.shape == b.shape) <span class="comment"># False</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="副本与深拷贝"><a href="#副本与深拷贝" class="headerlink" title="副本与深拷贝"></a>副本与深拷贝</h1><p>对python序列(tuple)或列表(list)等对象进行切片操作、通过<code>deepCopy()</code>方法创建深拷贝或在numpy中通过<code>copy()</code>方法创建拷贝后，新数组同原数组的存储地址一致与标识符均不一致，两者之间相互独立。介于python进行切片操作时首先调用<code>deepCopy()</code>方法复制了原数组的深拷贝，然后再在该拷贝上进行操作，因此两者互不相关。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">b = a[:]  <span class="comment"># 创建基于a的切片</span></span><br><span class="line">c = a.copy()  <span class="comment"># 创建基于a的视图</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(a) == <span class="built_in">id</span>(b) == <span class="built_in">id</span>(c))  <span class="comment"># False，标识符不一致</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">is</span> b <span class="keyword">is</span> c)  <span class="comment"># False，a、b、c不是同一个数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对数组进行操作不会影响其他数组</span></span><br><span class="line">a[<span class="number">2</span>] = <span class="number">4</span></span><br><span class="line"><span class="built_in">print</span>(b[<span class="number">2</span>] == <span class="number">4</span> <span class="keyword">or</span> c[<span class="number">2</span>] == <span class="number">4</span>)  <span class="comment"># False</span></span><br></pre></td></tr></table></figure>
-
-<p>python列表(list)对象进行<code>append()</code>操作时，实际进行了直接拷贝。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">num = <span class="number">3</span></span><br><span class="line">list1.append(num)</span><br><span class="line"><span class="built_in">print</span>(list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(num) == <span class="built_in">id</span>(list1[<span class="number">2</span>]))  <span class="comment"># True</span></span><br></pre></td></tr></table></figure>
-
-<p>因此，若要避免因修改变量值导致的数组数据变化，可通过深拷贝解决。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">num = <span class="number">3</span></span><br><span class="line">list1.append(copy.deepcopy(num))</span><br><span class="line"><span class="built_in">print</span>(list1)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(num) == <span class="built_in">id</span>(list1[<span class="number">2</span>]))  <span class="comment"># False</span></span><br></pre></td></tr></table></figure>
-
-<p>值得注意的是，numpy的ndarray对象进行<code>append()</code>操作需要将结果赋给其他的对象，因此经扩展后生成的新数组与原数组无关，所扩展的值与新数组中的对应扩展元素也无关。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list1 = np.array([<span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line">num = <span class="number">3</span></span><br><span class="line">list2 = np.append(list1, num)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(num) == <span class="built_in">id</span>(list2[<span class="number">2</span>]))  <span class="comment"># False</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><table>
-<thead>
-<tr>
-<th>操作</th>
-<th>拷贝类型</th>
-<th>标识符</th>
-<th>内存地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>直接赋值</td>
-<td>无</td>
-<td>一致</td>
-<td>一致</td>
-</tr>
-<tr>
-<td>numpy切片</td>
-<td>浅拷贝</td>
-<td>不同</td>
-<td>一致</td>
-</tr>
-<tr>
-<td>python切片</td>
-<td>深拷贝</td>
-<td>不同</td>
-<td>不同</td>
-</tr>
-<tr>
-<td><code>view()</code>方法</td>
-<td>浅拷贝</td>
-<td>不同</td>
-<td>一致</td>
-</tr>
-<tr>
-<td><code>copy()</code>方法</td>
-<td>深拷贝</td>
-<td>不同</td>
-<td>不同</td>
-</tr>
-</tbody></table>
+        <h2 id="成功建站！"><a href="#成功建站！" class="headerlink" title="成功建站！"></a>成功建站！</h2><p>极简风格的小博客，以后将自己的学习过程以及其中的小心得和小思考码在这里ww</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello world!&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2022/10/14/Python_Numpy/" target="_self">
-                <i class="iconfont icon-chevronleft"></i>
-                <span>Prev</span>
-              </a>
-            
           </div>
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2022-10-19 14:47:15
+              2022-09-18 17:55:43
             </span>
             
-                  <span class="post-tags">
-                    <i class="iconfont icon-tags mr-10" title="Tags"></i>
-                    
-                    <span class="span--tag mr-8">
-                      <a href="/tags/python/" title="python">
-                        #python
-                      </a>
-                    </span>
-                    
-                  </span>
-              
           </div>
           <div class="post-foot-prev">
             
-              <a href="/2023/01/06/Code_hanoi_tower/" target="_self">
+              <a href="/2022/10/11/pandas/" target="_self">
                 <span>Next</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -286,7 +195,7 @@
     <div class="title">Contents</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B5%8B%E5%80%BC%E4%B8%8E%E6%97%A0%E6%8B%B7%E8%B4%9D"><span class="toc-text">赋值与无拷贝</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="toc-text">视图与浅拷贝</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%AF%E6%9C%AC%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-text">副本与深拷贝</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E5%8A%9F%E5%BB%BA%E7%AB%99%EF%BC%81"><span class="toc-text">成功建站！</span></a></li></ol>
       
     </div>
   </div>
@@ -573,12 +482,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Python%E4%B8%AD%E7%9A%84%E8%B5%8B%E5%80%BC%E3%80%81%E8%A7%86%E5%9B%BE%E3%80%81%E5%89%AF%E6%9C%AC%E4%B8%8E%E6%8B%B7%E8%B4%9D + '&url=' + http%3A%2F%2Fexample.com%2F2022%2F10%2F19%2FPython_view_and_copy%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Encantado%20de%20conocerte%20en%20el%20mundo + '&url=' + http%3A%2F%2Fexample.com%2F2022%2F09%2F18%2Fmy-first-blog%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2022/10/19/Python_view_and_copy/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2022/09/18/my-first-blog/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
