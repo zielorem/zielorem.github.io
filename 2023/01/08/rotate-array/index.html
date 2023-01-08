@@ -189,15 +189,15 @@
 <ul>
 <li>将所有数组元素翻转</li>
 </ul>
-<p>![step1][step1]</p>
+<p>![step1][step1.png]</p>
 <ul>
 <li>翻转$[0, k\mod n-1)]$区间内的元素</li>
 </ul>
-<p>![step2][step2]</p>
+<p>![step2][step2.png]</p>
 <ul>
 <li>翻转$[k\mod n, n-1]$区间内的元素</li>
 </ul>
-<p>![step3][step3]</p>
+<p>![step3][step3.png]</p>
 <h1 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h1><p>翻转操作本质上为互换操作。因此，需要定义一个临时变量<code>temp</code>用于替换操作。互换函数为</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>* a, <span class="type">int</span>* b)</span>&#123;</span><br><span class="line">  <span class="type">int</span> temp = *a;</span><br><span class="line">  *a = *b, *b = t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
