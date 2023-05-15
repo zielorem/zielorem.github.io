@@ -18,12 +18,12 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="假设存在A、B、C三根杆，汉诺塔问题即需要将位置A上的圆盘全部移动至位置C，在移动过程中每次仅能移动一个圆盘，且三个位置上的圆盘状态始终保持为大盘在下、小盘在上。 假设目标汉诺塔为n阶，当n&#x3D;3时，其正常流程如下：  将小盘移动至位置C，将中盘移动至位置B    将小盘移动至位置B，将大盘移动至位置C    将小盘移动至位置A，将中盘移动至位置C    将小盘移动至位置C   从该过程">
+        <meta name="description" content="Question  假设存在A、B、C三根杆，汉诺塔问题即需要将位置A上的圆盘全部移动至位置C，在移动过程中每次仅能移动一个圆盘，且三个位置上的圆盘状态始终保持为大盘在下、小盘在上。    假设目标汉诺塔为n阶，当n&#x3D;3时，其正常流程如下：  将小盘移动至位置C，将中盘移动至位置B    将小盘移动至位置B，将大盘移动至位置C    将小盘移动至位置A，将中盘移动至位置C    将小盘移">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通过汉诺塔问题理解递归方法">
 <meta property="og:url" content="https://zielorem.github.io/2023/01/06/hanoi-tower/index.html">
 <meta property="og:site_name" content="泾流的龙窝">
-<meta property="og:description" content="假设存在A、B、C三根杆，汉诺塔问题即需要将位置A上的圆盘全部移动至位置C，在移动过程中每次仅能移动一个圆盘，且三个位置上的圆盘状态始终保持为大盘在下、小盘在上。 假设目标汉诺塔为n阶，当n&#x3D;3时，其正常流程如下：  将小盘移动至位置C，将中盘移动至位置B    将小盘移动至位置B，将大盘移动至位置C    将小盘移动至位置A，将中盘移动至位置C    将小盘移动至位置C   从该过程">
+<meta property="og:description" content="Question  假设存在A、B、C三根杆，汉诺塔问题即需要将位置A上的圆盘全部移动至位置C，在移动过程中每次仅能移动一个圆盘，且三个位置上的圆盘状态始终保持为大盘在下、小盘在上。    假设目标汉诺塔为n阶，当n&#x3D;3时，其正常流程如下：  将小盘移动至位置C，将中盘移动至位置B    将小盘移动至位置B，将大盘移动至位置C    将小盘移动至位置A，将中盘移动至位置C    将小盘移">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://zielorem.github.io/img/hanoi-tower/step1.png">
 <meta property="og:image" content="https://zielorem.github.io/img/hanoi-tower/step2.png">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://zielorem.github.io/img/hanoi-tower/process_n.png">
 <meta property="og:image" content="https://zielorem.github.io/img/hanoi-tower/process_3.png">
 <meta property="article:published_time" content="2023-01-06T15:11:42.000Z">
-<meta property="article:modified_time" content="2023-05-15T16:03:25.536Z">
+<meta property="article:modified_time" content="2023-05-15T16:57:23.011Z">
 <meta property="article:author" content="Zielorem">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="C&#x2F;C++">
@@ -294,8 +294,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-05-16 00:03:25</span>
-            <span class="mobile">2023-05-16 00:03</span>
+            <span class="desktop">2023-05-16 00:57:23</span>
+            <span class="mobile">2023-05-16 00:57</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -332,7 +332,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>801 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>802 Words</span>
         </span>
     
     
@@ -353,8 +353,11 @@
             
 
             <div class="article-content markdown-body">
-                <p><img lazyload src="/images/loading.svg" data-src="/img/hanoi-tower/step1.png" alt="step1"></p>
+                <div class="note-large notel-blue"><div class="notel-title"><p>Question</p>
+</div><div class="notel-content"><p><img lazyload src="/images/loading.svg" data-src="/img/hanoi-tower/step1.png" alt="step1"></p>
 <p>假设存在A、B、C三根杆，汉诺塔问题即需要将位置A上的圆盘全部移动至位置C，在移动过程中每次仅能移动一个圆盘，且三个位置上的圆盘状态始终保持为大盘在下、小盘在上。</p>
+ </div></div>
+
 <p>假设目标汉诺塔为n阶，当n&#x3D;3时，其正常流程如下：</p>
 <ul>
 <li>将小盘移动至位置C，将中盘移动至位置B</li>
@@ -414,7 +417,7 @@
         <li><strong>Created at:</strong> 2023-01-06 23:11:42</li>
         
             <li>
-                <strong>Updated at:</strong> 2023-05-16 00:03:25
+                <strong>Updated at:</strong> 2023-05-16 00:57:23
             </li>
         
         <li>

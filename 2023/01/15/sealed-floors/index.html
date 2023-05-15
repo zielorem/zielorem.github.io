@@ -18,12 +18,12 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="最近打舟肉鸽溟痕关卡“蔓延”时，看到溟痕扩散的方式感觉有点似曾相识，因此有想到如下问题。   我们假设关卡地板为m*n的网格grid，每个单元格可能存在以下值及其对应状态：  值为0代表特殊地块，溟痕无法扩散至该地形上 值为1代表干净地块（即未被扩散） 值为2代表溟痕地块（即已被扩散）   每过12秒，溟痕会向所在单元格周围四个方向上的相邻单元格扩散。编写算法返回直到grim中不存在干净地块为止">
+        <meta name="description" content="最近打舟肉鸽溟痕关卡“蔓延”时，看到溟痕扩散的方式感觉有点似曾相识，因此有想到如下问题。    我们假设关卡地板为m*n的网格grid，每个单元格可能存在以下值及其对应状态：  值为0代表特殊地块，溟痕无法扩散至该地形上 值为1代表干净地块（即未被扩散） 值为2代表溟痕地块（即已被扩散）   每过12秒，溟痕会向所在单元格周围四个方向上的相邻单元格扩散。编写算法返回直到grim中不存在干净地块为止">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通过“溟痕”理解多源BFS">
 <meta property="og:url" content="https://zielorem.github.io/2023/01/15/sealed-floors/index.html">
 <meta property="og:site_name" content="泾流的龙窝">
-<meta property="og:description" content="最近打舟肉鸽溟痕关卡“蔓延”时，看到溟痕扩散的方式感觉有点似曾相识，因此有想到如下问题。   我们假设关卡地板为m*n的网格grid，每个单元格可能存在以下值及其对应状态：  值为0代表特殊地块，溟痕无法扩散至该地形上 值为1代表干净地块（即未被扩散） 值为2代表溟痕地块（即已被扩散）   每过12秒，溟痕会向所在单元格周围四个方向上的相邻单元格扩散。编写算法返回直到grim中不存在干净地块为止">
+<meta property="og:description" content="最近打舟肉鸽溟痕关卡“蔓延”时，看到溟痕扩散的方式感觉有点似曾相识，因此有想到如下问题。    我们假设关卡地板为m*n的网格grid，每个单元格可能存在以下值及其对应状态：  值为0代表特殊地块，溟痕无法扩散至该地形上 值为1代表干净地块（即未被扩散） 值为2代表溟痕地块（即已被扩散）   每过12秒，溟痕会向所在单元格周围四个方向上的相邻单元格扩散。编写算法返回直到grim中不存在干净地块为止">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://zielorem.github.io/img/sealed-floors/sealing.gif">
 <meta property="og:image" content="https://zielorem.github.io/img/sealed-floors/default.png">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://zielorem.github.io/img/sealed-floors/step2.png">
 <meta property="og:image" content="https://zielorem.github.io/img/sealed-floors/step3.png">
 <meta property="article:published_time" content="2023-01-15T11:35:42.000Z">
-<meta property="article:modified_time" content="2023-05-15T16:00:19.677Z">
+<meta property="article:modified_time" content="2023-05-15T17:11:14.024Z">
 <meta property="article:author" content="Zielorem">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="C&#x2F;C++">
@@ -293,8 +293,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-05-16 00:19</span>
-            <span class="mobile">2023-05-16 00</span>
+            <span class="desktop">2023-05-16 01:11:14</span>
+            <span class="mobile">2023-05-16 01:11</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -352,9 +352,9 @@
             
 
             <div class="article-content markdown-body">
-                <blockquote>
-<p>最近打舟肉鸽溟痕关卡“蔓延”时，看到溟痕扩散的方式感觉有点似曾相识，因此有想到如下问题。</p>
-</blockquote>
+                <div class="note note-yellow icon-padding"><i class="note-icon fa-solid fa-square-question"></i><p>最近打舟肉鸽溟痕关卡“蔓延”时，看到溟痕扩散的方式感觉有点似曾相识，因此有想到如下问题。</p>
+</div>
+
 <p><img lazyload src="/images/loading.svg" data-src="/img/sealed-floors/sealing.gif" alt="sealing"></p>
 <p>我们假设关卡地板为<code>m*n</code>的网格<code>grid</code>，每个单元格可能存在以下值及其对应状态：</p>
 <ul>
@@ -364,10 +364,10 @@
 </ul>
 <p><img lazyload src="/images/loading.svg" data-src="/img/sealed-floors/default.png" alt="default"></p>
 <p>每过12秒，溟痕会向所在单元格周围四个方向上的相邻单元格扩散。编写算法返回直到<code>grim</code>中不存在干净地块为止所需经过的最小时间。若不可能，则返回<code>-1</code>。</p>
-<blockquote>
-<p>备注：PRTS Wiki中关于溟痕扩散机制的解释</p>
+<div class="note note-blue icon-padding"><i class="note-icon fa-solid fa-file-circle-info"></i><p>备注：PRTS Wiki中关于溟痕扩散机制的解释</p>
 <p><img lazyload src="/images/loading.svg" data-src="/img/sealed-floors/PRTS.png" alt="PRTS"></p>
-</blockquote>
+</div>
+
 <p>溟痕会向四个方向<strong>同时</strong>扩散，其扩散方式类似于上一篇“岛屿最大面积问题”中BFS的遍历方式。在“蔓延”关卡中，初始状态下并不存在溟痕地块，仅当溟痕怪通过其自身机制在其所处地块上生成溟痕后，关卡中方才存在第一块溟痕，尔后该溟痕会根据BFS思想向地图中其余地块扩散溟痕。</p>
 <p>但在部分关卡（如SN-EX-6）中，初始状态下即存在多块溟痕地块，这些地块会同时基于BFS对周围地块进行溟痕扩散，此即<strong>多源BFS</strong>。在扩散过程中，为了实时统计场上是否仍存在干净地块，需要在扩散前确定干净地块的数量。同时，由于BFS基于队列运行，所有溟痕地块在进行扩散前需要先入队，并在置于队首时方才进行扩散并出队，因此可以通过该过程对溟痕地块总数进行统计，从而确定该批次即将扩散的溟痕地块总数。每有一个元素入队，则溟痕地块的数量较先前多一块。初次进行溟痕扩散操作时，地块及队列的状态为</p>
 <p><img lazyload src="/images/loading.svg" data-src="/img/sealed-floors/step1.png" alt="step1"></p>
@@ -409,7 +409,7 @@
         <li><strong>Created at:</strong> 2023-01-15 19:35:42</li>
         
             <li>
-                <strong>Updated at:</strong> 2023-05-16 00:00:19
+                <strong>Updated at:</strong> 2023-05-16 01:11:14
             </li>
         
         <li>
