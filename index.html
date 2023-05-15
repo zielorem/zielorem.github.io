@@ -1,994 +1,1370 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
-
+<html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="x5-fullscreen" content="true">
-<meta name="full-screen" content="yes">
-<meta name="theme-color" content="#317EFB" />
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta name="description" content="毛龙小窝">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Zielorem">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://zielorem.github.io/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="海鲜龙小窝">
 <meta property="og:type" content="website">
 <meta property="og:title" content="泾流的龙窝">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="https://zielorem.github.io/index.html">
 <meta property="og:site_name" content="泾流的龙窝">
-<meta property="og:description" content="毛龙小窝">
-<meta property="og:locale">
+<meta property="og:description" content="海鲜龙小窝">
+<meta property="og:locale" content="en_US">
 <meta property="article:author" content="Zielorem">
 <meta name="twitter:card" content="summary">
-
-
-<title >泾流的龙窝</title>
-
-<!-- Favicon -->
-
-    <link href='/img/favicon.png?v=1.2.13' rel='icon' type='image/png' sizes='16x16' ></link>
-
-
-    <link href='/img/favicon.png?v=1.2.13' rel='icon' type='image/png' sizes='32x32' ></link>
-
-
-
-
-<!-- Plugin -->
-
-
-
-
     
-<link rel="stylesheet" href="https://unpkg.com/hexo-theme-async@1.2.13/source/css/plugins/bootstrap.row.css">
-
     
-<link rel="stylesheet" href="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
-
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/favicon.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+    <meta name="theme-color" content="#4a5eb6">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <!--- Page Info-->
     
-<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
-
-
-    
-
-    
+    <title>
         
-<link rel="stylesheet" href="https://unpkg.com/katex@latest/dist/katex.min.css">
+        Zielorem&#39;s dragon nest
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
 
     
+<link rel="stylesheet" href="/assets/fonts.css">
 
-
-
-<!-- Icon -->
-
+    <!--- Font Part-->
     
-<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
-
-
-
-
-<!-- Variable -->
-<script>window.ASYNC_CONFIG = {"hostname":"example.com","author":"Zielorem","root":"/","typed_text":["fluffy dragon","fursuiter","MUG player","programmer"],"favicon":{"logo":"/img/favicon.png","icon16":"/img/favicon.png","icon32":"/img/favicon.png","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！","dark_logo":"/img/dark_favicon.png"},"theme_version":"1.2.13","theme":{"switch":true,"default":"style-light"},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"path":"search.xml"},"i18n":{"placeholder":"Searching for...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} ms）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_button":"复制","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式"},"creative_commons":{"license":"by-nc-sa","language":"deed.zh","post":true,"clipboard":false},"swup":false,"plugin":{"flickr_justified_gallery":{"js":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"fancybox":{"css":"https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css","js":"https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"}},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","keyboard":"far fa-keyboard","hourglass":"fas fa-hourglass-half","fire":"fas fa-fire-alt"}};</script>
-
-<!-- Theme mode css -->
-<link data-swup-theme rel="stylesheet" href="/css/index.css?v=1.2.13" id="trm-switch-style">
-<script>
-    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
-    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
-    let type = catchMode === 'style-dark' ? 'add' : 'remove';
-    document.documentElement.classList[type]('dark')
-</script>
-
-<!-- CDN -->
-
-
+    
+    
     
 
+    <!--- Inject Part-->
     
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"zielorem.github.io","root":"/","language":"en","path":"search.xml"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#4a5eb6","secondary":"#7ec1ff"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":false,"style":"fixed","image":{"light":"/images/banner.jpg","dark":"/images/banner.jpg"},"title":null,"subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"mini","audios":[{"name":"Evans","artist":"DJ YOSHITAKA","url":"/images/Evans.mp3","cover":"/images/evans.webp"}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.3","navbar":{"auto_hide":false,"color":{"left":"#7ec1ff","right":"#4a5eb6","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Links":{"path":"/friends","icon":"fa-regular fa-link"},"About":{"path":"/about","icon":"fa-regular fa-user"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"随缘更新中...ww","links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
+    Global.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
 
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
 
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
 
-<!-- Site Analytics -->
- 
-<meta name="generator" content="Hexo 6.3.0"></head>
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
 
 <body>
+<div class="progress-bar-container">
+    
 
-  <!-- app wrapper -->
-  <div class="trm-app-frame">
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
 
-    <!-- page preloader -->
-    <div class="trm-preloader">
-    <div class="trm-holder">
-        <div class="preloader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+
+<main class="page-container">
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                <h1>
+                Zielorem&#39;s dragon nest
+                </h1>
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="active" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/friends"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-link"></i>
+                                        
+                                        LINKS
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/about"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-user"></i>
+                                        
+                                        ABOUT
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-    <!-- page preloader end -->
 
-    <!-- change mode preloader -->
-    <div class="trm-mode-swich-animation-frame">
-    <div class="trm-mode-swich-animation">
-        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
-        <div class="trm-horizon"></div>
-        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="active" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/friends"  >
+                             
+                                
+                                    <i class="fa-regular fa-link"></i>
+                                
+                                LINKS
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/about"  >
+                             
+                                
+                                    <i class="fa-regular fa-user"></i>
+                                
+                                ABOUT
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
     </div>
-</div>
-    <!-- change mode preloader end -->
 
-      <!-- scroll container -->
-      <div id="trm-dynamic-content" class="trm-swup-animation">
-        <div id="trm-scroll-container" class="trm-scroll-container" data-scroll-container style="opacity: 0">
-          <div data-scroll-section id="content" class="trm-scroll-section">
+    <div class="window-mask"></div>
 
-            <div class="locomotive-scroll__sticky-target" style=" position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none;"></div>
-
-            <!-- top bar -->
-            <header class="trm-top-bar" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
-	<div class="container">
-		<div class="trm-left-side">
-			<!-- logo -->
-			<a href="/" class="trm-logo-frame trm-anima-link">
-				
-					<img alt="logo" class=" trm-light-icon" src="/img/favicon.png"> <img alt="logo" class=" trm-dark-icon" src="/img/dark_favicon.png">
-				
-				
-					<div class="trm-logo-text">
-						Zielorem&#39;s<span>dragon nest</span>
-					</div>
-				
-			</a>
-			<!-- logo end -->
-		</div>
-		<div class="trm-right-side">
-
-			<!-- menu -->
-			<div class="trm-menu">
-				<nav>
-					<ul>
-						
-						<li class="menu-item-has-children current-menu-item">
-							<a  href="/" target="">
-								HOME
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/archives/" target="">
-								ARCHIVES
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/tags/" target="">
-								TAGS
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/links/" target="">
-								LINKS
-							</a>
-							
-						</li>
-						
-						<li class="menu-item-has-children ">
-							<a  href="/#" target="">
-								MORE
-							</a>
-							
-							<ul>
-								
-								<li>
-									<a  href="/toolkits/" target="">
-										TOOLKITS
-									</a>
-								</li>
-								
-								<li>
-									<a  href="/about/" target="">
-										ABOUT
-									</a>
-								</li>
-								
-							</ul>
-							
-						</li>
-						
-					</ul>
-				</nav>
-			</div>
-			<!-- menu end -->
-			
-			<!-- mode switcher place -->
-			
-			<div class="trm-mode-switcher-place">
-				<!-- <div class="trm-hidden-switcher"> -->
-					<div class="trm-mode-switcher">
-					  <i class="iconfont far fa-sun"></i>
-					  <input class="tgl tgl-light" id="trm-swich" type="checkbox">
-					  <label class="trm-swich" for="trm-swich"></label>
-					  <i class="iconfont far fa-moon"></i>
-					</div>
-				  <!-- </div> -->
-			</div>
-			
-			<!-- mode switcher place end -->
-
-			
-				
-				<div id="trm-search-btn" class="trm-search-btn">
-					<i class="iconfont fas fa-search"></i>
-				</div>
-				 
-			 
-
-		</div>
-		<div class="trm-menu-btn">
-			<span></span>
-		</div>
-	</div>
 </header>
-            <!-- top bar end -->
 
-            <!-- body -->
-            <div class="trm-content-start">
-    <!-- banner -->
-    <div class="trm-banner" data-scroll data-scroll-direction="vertical">
-    
-    <!-- banner cover -->
-    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" data-scroll data-scroll-direction="vertical" data-scroll-speed="-3" src="/img/banner.png">
-    <!-- banner cover end -->
-    
 
-    <!-- banner content -->
-    <div class="trm-banner-content trm-overlay">
-        <div class="container" data-scroll data-scroll-direction="vertical" data-scroll-speed="0">
-            <div class="row">
-                
-                <div class="col-lg-4"></div>
-                
-                <div class="col-lg-8">
+        </div>
 
-                    <!-- banner title -->
-                    <div class="trm-banner-text ">
-                        <div class="trm-label trm-mb-20">
-                            Welcome to my nest!
-                        </div>
-                        <h1 class="trm-mb-30 trm-hsmb-font">
-                            Better to run <br>than curse the road.
-                        </h1>
+        <div class="main-content-body">
 
+            
+                <div class="home-sidebar-container fade-in-down-animation">
+    <div class="sticky-container">
+        
+            <div class="sidebar-content">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="author">
+                    <div class="name">Zielorem</div>
+                    
+                </div>
+                <div class="statistics">
+                    <a class="item" href="/tags">
+                        <div class="number">2</div>
+                        <div class="label">Tags</div>
+                    </a>
+                    <a class="item" href="/categories">
+                        <div class="number">2</div>
+                        <div class="label">Categories</div>
+                    </a>
+                    <a class="item" href="/archives">
+                        <div class="number">13</div>
+                        <div class="label">Posts</div>
+                    </a>
+                </div>
+            </div>
+            
+                <div class="sidebar-links"   marginTop >
+                    <div class="site-info">
+                        <div class="site-name">Zielorem&#39;s dragon nest</div>
                         
-                            <ul class="trm-breadcrumbs trm-label">
-                                <li>
-                                    <a href="/" class="trm-anima-link">Home</a>
-                                </li>
-                                <li>
-                                    <span>
-                                        index.html
-                                    </span
-                                ></li>
-                            </ul>
+                            <div class="announcement">
+                                随缘更新中...ww
+                            </div>
                         
                     </div>
-                    <!-- banner title end -->
-
-                    <!-- scroll hint -->
-                    <a href="#about-triger" data-scroll-to="#about-triger" data-scroll-offset="-130" class="trm-scroll-hint-frame">
-                        <div class="trm-scroll-hint"></div>
-                        <span class="trm-label">Scroll down</span>
-                    </a>
-                    <!-- scroll hint end -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- banner content end -->
-</div>
-    <!-- banner end -->
-    <div class="container">
-        <div class="row">
-            
-                <div id="page-sidebar" class="col-lg-4 hidden-sm">
-                    <!-- main card -->
                     
-
-<div class="trm-main-card-frame trm-sidebar">
-    <div class="trm-main-card" data-scroll data-scroll-repeat data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="60"> 
-    
-        <!-- card header -->
-<div class="trm-mc-header">
-    <div class="trm-avatar-frame trm-mb-20">
-        <img alt="Avatar" class="trm-avatar" src="/img/avatar.png">
-    </div>
-    <h5 class="trm-name trm-mb-15">
-        Zielorem泾流
-    </h5>
-    
-    <div class="trm-label">
-        I`m a
-        <span class="trm-typed-text">
-            <!-- Words for theme.user.typedText -->
-        </span>
-    </div>
-    
-</div>
-<!-- card header end -->
-
-<!-- sidebar social -->
-<div class="trm-divider trm-mb-40 trm-mt-40"></div>
-
-<div class="trm-social">
-    
-        <a href="https://github.com/zielorem" title="Github" rel="nofollow" target="_blank">
-            <i class="iconfont fab fa-github"></i>
-        </a>
-    
-        <a href="https://twitter.com/zielorem" title="Twitter" rel="nofollow" target="_blank">
-            <i class="iconfont fab fa-twitter"></i>
-        </a>
-    
-        <a href="https://weibo.com/u/6297064983" title="Weibo" rel="nofollow" target="_blank">
-            <i class="iconfont fab fa-weibo"></i>
-        </a>
-    
-</div>
-
-<!-- sidebar social end -->
-
-<!-- info -->
-<div class="trm-divider trm-mb-40 trm-mt-40"></div>
-<div class="trm-divider trm-mb-40 trm-mt-40"></div>
-<ul class="trm-table trm-mb-20">
-    
-        <li>
-            <div class="trm-label">
-                residence:
-            </div>
-            <div class="trm-label trm-label-light">
-                Chengdu
-            </div>
-        </li>
-    
-        <li>
-            <div class="trm-label">
-                species:
-            </div>
-            <div class="trm-label trm-label-light">
-                dragon
-            </div>
-        </li>
-    
-</ul>
-
-<!-- info end -->
-<div class="trm-divider trm-mb-40 trm-mt-40"></div>
-<!-- action button -->
-<div class="text-center">
-    <a href="mailto:zielorem@gmail.com" class="trm-btn">
-        CONTACT ME
-        <i class="iconfont far fa-envelope"></i>
-    </a>
-</div>
-<!-- action button end -->
-
-    
-    </div>
-</div>
-                    <!-- main card end -->
+                        
+                            
+                                <a class="links" href="/archives" target="_blank">
+                                    
+                                        <i class="fa-regular fa-archive icon-space"></i>
+                                    
+                                    <span class="link-name">Archives</span>
+                                </a>
+                            
+                        
+                            
+                                <a class="links" href="/tags" target="_blank">
+                                    
+                                        <i class="fa-regular fa-tags icon-space"></i>
+                                    
+                                    <span class="link-name">Tags</span>
+                                </a>
+                            
+                        
+                            
+                                <a class="links" href="/categories" target="_blank">
+                                    
+                                        <i class="fa-regular fa-folder icon-space"></i>
+                                    
+                                    <span class="link-name">Categories</span>
+                                </a>
+                            
+                        
+                    
                 </div>
             
-            <div id="page-content" class="col-lg-8">
-                <div class="trm-content" id="trm-content">
-                    <div data-scroll data-scroll-repeat data-scroll-offset="500" id="about-triger"></div>
+        
 
-                    <!-- categories -->
-
-<div class="row hidden-sm">
-    
-    
-    <div class="col-lg-6">
-        <!-- categories card -->
-<div class="trm-blog-categories trm-scroll-animation" data-scroll data-scroll-offset="40">
-    <h6>
-        algorithm
-        <span class="trm-number">
-            9
-        </span>
-    </h6>
-    <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-    <a href="/categories/algorithm/." class="trm-label">
-        查看分类 
-        <i class="iconfont fas fa-arrow-right arrow-right"></i>
-    </a>
-</div>
-<!-- categories card end -->
     </div>
-    
-    <div class="col-lg-6">
-        <!-- categories card -->
-<div class="trm-blog-categories trm-scroll-animation" data-scroll data-scroll-offset="40">
-    <h6>
-        summary
-        <span class="trm-number">
-            3
-        </span>
-    </h6>
-    <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-    <a href="/categories/summary/." class="trm-label">
-        查看分类 
-        <i class="iconfont fas fa-arrow-right arrow-right"></i>
-    </a>
-</div>
-<!-- categories card end -->
-    </div>
-    
 </div>
 
-<!-- categories end -->
+            
 
-<!-- newest publications -->
-<div class="row">
-    <div class="col-lg-12">
-        <!-- title -->
-        <h5 class="trm-title-with-divider">
-            最近发布 
-            <span data-number="01"></span>
-        </h5>
-    </div>
-    
-        <div class="col-lg-6">
-            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-    <a href="/2023/01/18/permutations-and-combinations/" class="trm-cover-frame trm-anima-link">
-        
-        
-            <img alt="cover" class="no-fancybox" src="/img/posts/permutations_and_combinations.png">
-        
-    </a>
-    <div class="trm-card-descr">
-        <div class="trm-label trm-category trm-mb-20">
-            <a href=" /categories/algorithm/">
-                algorithm
-            </a>
-        </div>
-        <h5>
-            <a href="/2023/01/18/permutations-and-combinations/" class="trm-anima-link">
-                通过排列组合问题理解回溯算法
-            </a>
-        </h5>
-        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-        <ul class="trm-card-data trm-label">
-            <li>23/01/18</li>
-            
-                <li>2.2k 字</li>
-            
-            
-                <li>8 MINS</li>
-            
-        </ul>
-    </div>
-</div>
-        </div>
-    
-        <div class="col-lg-6">
-            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-    <a href="/2023/01/15/sealed-floors/" class="trm-cover-frame trm-anima-link">
-        
-        
-            <img alt="cover" class="no-fancybox" src="/img/posts/sealed_floors.gif">
-        
-    </a>
-    <div class="trm-card-descr">
-        <div class="trm-label trm-category trm-mb-20">
-            <a href=" /categories/algorithm/">
-                algorithm
-            </a>
-        </div>
-        <h5>
-            <a href="/2023/01/15/sealed-floors/" class="trm-anima-link">
-                通过“溟痕”理解多源BFS
-            </a>
-        </h5>
-        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-        <ul class="trm-card-data trm-label">
-            <li>23/01/15</li>
-            
-                <li>1.7k 字</li>
-            
-            
-                <li>7 MINS</li>
-            
-        </ul>
-    </div>
-</div>
-        </div>
-    
-        <div class="col-lg-6">
-            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-    <a href="/2023/01/14/fill-pointer-of-trees/" class="trm-cover-frame trm-anima-link">
-        
-        
-            <img alt="cover" class="no-fancybox" src="/img/posts/fill_pointer_of_trees.png">
-        
-    </a>
-    <div class="trm-card-descr">
-        <div class="trm-label trm-category trm-mb-20">
-            <a href=" /categories/algorithm/">
-                algorithm
-            </a>
-        </div>
-        <h5>
-            <a href="/2023/01/14/fill-pointer-of-trees/" class="trm-anima-link">
-                关于完美二叉树的指针填充策略
-            </a>
-        </h5>
-        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-        <ul class="trm-card-data trm-label">
-            <li>23/01/14</li>
-            
-                <li>999 字</li>
-            
-            
-                <li>4 MINS</li>
-            
-        </ul>
-    </div>
-</div>
-        </div>
-    
-        <div class="col-lg-6">
-            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-    <a href="/2023/01/13/island-proportion/" class="trm-cover-frame trm-anima-link">
-        
-        
-            <img alt="cover" class="no-fancybox" src="/img/posts/island_proportion.png">
-        
-    </a>
-    <div class="trm-card-descr">
-        <div class="trm-label trm-category trm-mb-20">
-            <a href=" /categories/algorithm/">
-                algorithm
-            </a>
-        </div>
-        <h5>
-            <a href="/2023/01/13/island-proportion/" class="trm-anima-link">
-                通过BFS/DFS解决岛屿最大面积问题
-            </a>
-        </h5>
-        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-        <ul class="trm-card-data trm-label">
-            <li>23/01/13</li>
-            
-                <li>1.5k 字</li>
-            
-            
-                <li>7 MINS</li>
-            
-        </ul>
-    </div>
-</div>
-        </div>
-    
-        <div class="col-lg-6">
-            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-    <a href="/2023/01/12/slide-window-ascii/" class="trm-cover-frame trm-anima-link">
-        
-        
-            <img alt="cover" class="no-fancybox" src="/img/posts/slide_window_ascii.png">
-        
-    </a>
-    <div class="trm-card-descr">
-        <div class="trm-label trm-category trm-mb-20">
-            <a href=" /categories/algorithm/">
-                algorithm
-            </a>
-        </div>
-        <h5>
-            <a href="/2023/01/12/slide-window-ascii/" class="trm-anima-link">
-                通过滑动窗口确定无重复字符的最长子串
-            </a>
-        </h5>
-        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-        <ul class="trm-card-data trm-label">
-            <li>23/01/12</li>
-            
-                <li>667 字</li>
-            
-            
-                <li>2 MINS</li>
-            
-        </ul>
-    </div>
-</div>
-        </div>
-    
-        <div class="col-lg-6">
-            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-    <a href="/2023/01/08/rotate-array/" class="trm-cover-frame trm-anima-link">
-        
-        
-            <img alt="cover" class="no-fancybox" src="/img/posts/rotate_array.png">
-        
-    </a>
-    <div class="trm-card-descr">
-        <div class="trm-label trm-category trm-mb-20">
-            <a href=" /categories/algorithm/">
-                algorithm
-            </a>
-        </div>
-        <h5>
-            <a href="/2023/01/08/rotate-array/" class="trm-anima-link">
-                数组的翻转与轮转
-            </a>
-        </h5>
-        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-        <ul class="trm-card-data trm-label">
-            <li>23/01/08</li>
-            
-                <li>545 字</li>
-            
-            
-                <li>2 MINS</li>
-            
-        </ul>
-    </div>
-</div>
-        </div>
-    
-        <div class="col-lg-6">
-            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-    <a href="/2023/01/08/square-sort/" class="trm-cover-frame trm-anima-link">
-        
-        
-            <img alt="cover" class="no-fancybox" src="/img/posts/square_sort.png">
-        
-    </a>
-    <div class="trm-card-descr">
-        <div class="trm-label trm-category trm-mb-20">
-            <a href=" /categories/algorithm/">
-                algorithm
-            </a>
-        </div>
-        <h5>
-            <a href="/2023/01/08/square-sort/" class="trm-anima-link">
-                利用双指针思想解决有序数组的平方排序问题
-            </a>
-        </h5>
-        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-        <ul class="trm-card-data trm-label">
-            <li>23/01/08</li>
-            
-                <li>537 字</li>
-            
-            
-                <li>2 MINS</li>
-            
-        </ul>
-    </div>
-</div>
-        </div>
-    
-        <div class="col-lg-6">
-            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-    <a href="/2023/01/07/fast-slow/" class="trm-cover-frame trm-anima-link">
-        
-        
-            <img alt="cover" class="no-fancybox" src="/img/posts/fast_slow.png">
-        
-    </a>
-    <div class="trm-card-descr">
-        <div class="trm-label trm-category trm-mb-20">
-            <a href=" /categories/algorithm/">
-                algorithm
-            </a>
-        </div>
-        <h5>
-            <a href="/2023/01/07/fast-slow/" class="trm-anima-link">
-                通过快慢指针法定位链表的中间结点
-            </a>
-        </h5>
-        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-        <ul class="trm-card-data trm-label">
-            <li>23/01/07</li>
-            
-                <li>485 字</li>
-            
-            
-                <li>2 MINS</li>
-            
-        </ul>
-    </div>
-</div>
-        </div>
-    
-        <div class="col-lg-6">
-            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-    <a href="/2023/01/06/hanoi-tower/" class="trm-cover-frame trm-anima-link">
-        
-        
-            <img alt="cover" class="no-fancybox" src="/img/posts/hanoi_tower.jpeg">
-        
-    </a>
-    <div class="trm-card-descr">
-        <div class="trm-label trm-category trm-mb-20">
-            <a href=" /categories/algorithm/">
-                algorithm
-            </a>
-        </div>
-        <h5>
-            <a href="/2023/01/06/hanoi-tower/" class="trm-anima-link">
-                通过汉诺塔问题理解递归方法
-            </a>
-        </h5>
-        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-        <ul class="trm-card-data trm-label">
-            <li>23/01/06</li>
-            
-                <li>813 字</li>
-            
-            
-                <li>3 MINS</li>
-            
-        </ul>
-    </div>
-</div>
-        </div>
-    
-        <div class="col-lg-6">
-            <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
-    <a href="/2022/10/19/view-and-copy/" class="trm-cover-frame trm-anima-link">
-        
-        
-            <img alt="cover" class="no-fancybox" src="/img/posts/view_and_copy.jpeg">
-        
-    </a>
-    <div class="trm-card-descr">
-        <div class="trm-label trm-category trm-mb-20">
-            <a href=" /categories/summary/">
-                summary
-            </a>
-        </div>
-        <h5>
-            <a href="/2022/10/19/view-and-copy/" class="trm-anima-link">
-                Python中的赋值、视图、副本与拷贝
-            </a>
-        </h5>
-        <div class="trm-divider trm-mb-20 trm-mt-20"></div>
-        <ul class="trm-card-data trm-label">
-            <li>22/10/19</li>
-            
-                <li>989 字</li>
-            
-            
-                <li>3 MINS</li>
-            
-        </ul>
-    </div>
-</div>
-        </div>
-    
-</div>
-<!-- newest publications end -->
+            <div class="main-content">
 
+                
+                    <div class="home-content-container fade-in-down-animation">
+    <ul class="home-article-list">
+        
+            <li class="home-article-item">
 
-    <div class="trm-pagination">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a>
-    </div>
+                
 
+                
 
-                    <div class="trm-divider footer-divider"></div>
+                <h3 class="home-article-title">
+                    <a href="/2023/01/18/permutations-and-combinations/">
+                        通过排列组合问题理解回溯算法
+                    </a>
+                </h3>
 
-                    <!-- footer -->
-                    <footer class="trm-scroll-animation" data-scroll data-scroll-offset="50">
+                <div class="home-article-content markdown-body">
+                    
+                        排列问题描述给定一个不含重复数字的数组nums，返回其所有可能的元素不重复的全排列。
+问题分析
+以数组[1, 2, 3]为例，其总共可能含有的全排列数为 个。一般情况下，我们会逐个选择排列中的元素以组成新排列。例如：
 
-    
+首先选择1作为排列的第一位，则...
+                    
+                </div>
 
-    
-        <div class="trm-footer-item">
-            <span>© 2022- 2023</span>
-            <span class="footer-separator"data-separator=" · "></span>
-            <span class="trm-accent-color">Zielorem泾流</span>
-        </div>
-    
-
-    
-        <div class="trm-footer-item">
-            <span>
-                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.3.0
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Wed Jan 18 2023 00:58:45 GMT+0800">
+                
+                    2023-01-18
+                
             </span>
-            <span class="footer-separator" data-separator=" | "></span>
-            <span> 
-                主题 - 
-                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
-                v1.2.13
+        </span>
+        
+            <span class="home-article-category"><i class="fa-solid fa-folders"></i></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/algorithm/">algorithm</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
             </span>
-        </div>
-    
-
-    <div class="trm-footer-item">
-        <span id="busuanzi_container_site_pv">
-            总访问量 <span id="busuanzi_value_site_pv" class="trm-accent-color"></span> 次
-        </span>
-        <span class="footer-separator" data-separator=" | "></span>
-        <span id="busuanzi_container_site_uv">
-            总访客数 <span id="busuanzi_value_site_uv" class="trm-accent-color"></span> 人
-        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/C-C/">C/C++</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
     </div>
 
-    
-        <div class="trm-footer-item">
-            龙窝已平稳运行 <span id="since" class="trm-accent-color"></span> 天
-        </div>
-     
+    <a href="/2023/01/18/permutations-and-combinations/">Read more<span class="seo-reader-text">通过排列组合问题理解回溯算法</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
 
-     
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/01/15/sealed-floors/">
+                        通过“溟痕”理解多源BFS
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        问题描述
+最近打舟肉鸽溟痕关卡“蔓延”时，看到溟痕扩散的方式感觉有点似曾相识，因此有想到如下问题。
+
+
+我们假设关卡地板为m*n的网格grid，每个单元格可能存在以下值及其对应状态：
+
+值为0代表特殊地块，溟痕无法扩散至该地形上
+值为1代表干净地块（...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sun Jan 15 2023 19:35:42 GMT+0800">
+                
+                    2023-01-15
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fa-solid fa-folders"></i></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/algorithm/">algorithm</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/C-C/">C/C++</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/python/">python</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2023/01/15/sealed-floors/">Read more<span class="seo-reader-text">通过“溟痕”理解多源BFS</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/01/14/fill-pointer-of-trees/">
+                        关于完美二叉树的指针填充策略
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        问题描述
+给定一个完美二叉树，其所有叶子结点均在同一层，且每个父节点均有两个子节点，其定义为
+123456struct Node&#123;  int val;  Node *left;  Node *right;  Node *next;&#125...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sat Jan 14 2023 23:34:36 GMT+0800">
+                
+                    2023-01-14
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fa-solid fa-folders"></i></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/algorithm/">algorithm</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/C-C/">C/C++</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/python/">python</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2023/01/14/fill-pointer-of-trees/">Read more<span class="seo-reader-text">关于完美二叉树的指针填充策略</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/01/13/island-proportion/">
+                        通过BFS/DFS解决岛屿最大面积问题
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        问题描述
+当前存在一个大小为m*n的二进制矩阵grid，假设岛屿是由一些相邻的1构成的组合，即两个1必须在水平或垂直的四个方向上相邻（假设grid外的位置全为0），岛屿的面积即岛上值为1的单元格的数目。计算并返回grid中最大的岛屿面积。若不存在岛屿...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Jan 13 2023 14:57:50 GMT+0800">
+                
+                    2023-01-13
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fa-solid fa-folders"></i></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/algorithm/">algorithm</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/C-C/">C/C++</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/python/">python</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2023/01/13/island-proportion/">Read more<span class="seo-reader-text">通过BFS/DFS解决岛屿最大面积问题</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/01/12/slide-window-ascii/">
+                        通过滑动窗口确定无重复字符的最长子串
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        问题描述给定一个字符串s，编写算法找出其中不含有重复字符的最长子串的长度。
+问题分析题设要求子串中不出现重复字符，因此可以在遍历过程中将出现过的字符的位置记录在数组中。在出现过的字符再次出现后，当前子串便不再满足条件，因此需要更新子串的起始位置从而重...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Thu Jan 12 2023 14:32:23 GMT+0800">
+                
+                    2023-01-12
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fa-solid fa-folders"></i></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/algorithm/">algorithm</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/C-C/">C/C++</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/python/">python</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2023/01/12/slide-window-ascii/">Read more<span class="seo-reader-text">通过滑动窗口确定无重复字符的最长子串</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/01/08/rotate-array/">
+                        数组的翻转与轮转
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        问题描述当前存在一个数组nums，编写算法将数组中的  个元素向右轮转  个位置（ 为非负数）。
+问题分析为了避免直接轮转导致的数组元素覆盖，可以创建新的数组从而将中的元素存储至正确的位置，尔后再将其赋值至原数组中。在轮转过程中，当数组元素向右移动 ...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sun Jan 08 2023 14:47:42 GMT+0800">
+                
+                    2023-01-08
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fa-solid fa-folders"></i></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/algorithm/">algorithm</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/C-C/">C/C++</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/python/">python</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2023/01/08/rotate-array/">Read more<span class="seo-reader-text">数组的翻转与轮转</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/01/08/square-sort/">
+                        利用双指针思想解决有序数组的平方排序问题
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        问题描述当前存在一个以非递减顺序排序的整数数组nums，编写算法返回每个数字的平方所组成的新数组，且同样按照非递减顺序排序。
+问题分析本题最简单的思路即对每个数组元素均平方后的数组进行再排序，其时间复杂度为 。但由题意可知，有序数组最左端与最右端的元...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sun Jan 08 2023 11:42:16 GMT+0800">
+                
+                    2023-01-08
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fa-solid fa-folders"></i></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/algorithm/">algorithm</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/C-C/">C/C++</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/python/">python</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2023/01/08/square-sort/">Read more<span class="seo-reader-text">利用双指针思想解决有序数组的平方排序问题</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/01/07/fast-slow/">
+                        通过快慢指针法定位链表的中间结点
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        问题描述给定一个头结点为head的非空单链表，返回链表的中间结点。若存在两个中间结点，则返回第二个中间结点。
+问题分析链表的不足在于其无法通过下标直接访问特定结点，需要逐个遍历结点以定位特定结点。一般情况下，可以将链表中的数据内容逐个遍历至数组中，从...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sat Jan 07 2023 14:18:10 GMT+0800">
+                
+                    2023-01-07
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fa-solid fa-folders"></i></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/algorithm/">algorithm</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/C-C/">C/C++</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/python/">python</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2023/01/07/fast-slow/">Read more<span class="seo-reader-text">通过快慢指针法定位链表的中间结点</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/01/06/hanoi-tower/">
+                        通过汉诺塔问题理解递归方法
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        问题描述
+假设存在A、B、C三根杆，汉诺塔问题即需要将位置A上的圆盘全部移动至位置C，在移动过程中每次仅能移动一个圆盘，且三个位置上的圆盘状态始终保持为大盘在下、小盘在上。
+问题分析假设目标汉诺塔为n阶，当n&#x3D;3时，其正常流程如下：
+
+将小...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Jan 06 2023 23:11:42 GMT+0800">
+                
+                    2023-01-06
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fa-solid fa-folders"></i></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/algorithm/">algorithm</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/C-C/">C/C++</a>&nbsp;
+                        </li>
+                    
+                        <li>
+                            | 
+                            <a href="/tags/python/">python</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2023/01/06/hanoi-tower/">Read more<span class="seo-reader-text">通过汉诺塔问题理解递归方法</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/10/19/view-and-copy/">
+                        Python中的赋值、视图、副本与拷贝
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        数组对象在创建后会存在唯一标识数组内容的通用标识符（即id值）与其数组内容在内存中的存储地址，通过不同方式创建基于原数组的新数组会在这两个属性的基础上产生不同的结果。
+赋值与无拷贝将原数组直接赋值给新数组后，新数组同原数组的标识符与存储地址一致。因此...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Wed Oct 19 2022 14:47:15 GMT+0800">
+                
+                    2022-10-19
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fa-solid fa-folders"></i></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/summary/">summary</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/python/">python</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2022/10/19/view-and-copy/">Read more<span class="seo-reader-text">Python中的赋值、视图、副本与拷贝</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+    </ul>
+
+    <div class="home-paginator">
+        <div class="paginator">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa-regular fa-angle-right"></i></a>
+</div>
+
+    </div>
+</div>
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #4a5eb6"></i>&nbsp;&nbsp;<a href="/">Zielorem</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <br>
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.1.3</a>
+        </div>
+        
+        
+        
+            <div id="start_div" style="display:none">
+                2022/9/18 11:45:14
+            </div>
+            <div>
+                Nest up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
 </footer>
+        </div>
+    </div>
+
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+            <li class="right-bottom-tools tool-aplayer flex-center">
+
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+
+</main>
+
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/layouts/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
+
+
+
+
+
+
+    
+<script src="/js/tools/scrollBlur.js"></script>
+
+
+
+
+<div class="post-scripts pjax">
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
 
 <script>
-    function show_date_time () {
-        BirthDay = new Date("09/17/2022 20:59:00");
-        today = new Date();
-        timeold = (today.getTime() - BirthDay.getTime());
-        msPerDay = 24 * 60 * 60 * 1000
-        day = Math.floor(timeold / msPerDay)
-        since.innerHTML = day
-    }
-    show_date_time()
-</script>
- 
-                    <!-- footer end -->
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax',
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-            <!-- body end -->
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
 
-            <!-- body -->
-            <div class="trm-fixed-container" data-scroll data-scroll-sticky data-scroll-target=".locomotive-scroll__sticky-target" data-scroll-offset="-10">
-    
-    
-        <div class="trm-fixed-btn" data-title="单栏和双栏切换" onclick="document.body.classList.toggle('trm-single-column')">
-            <i class="iconfont fas fa-arrows-alt-h"></i>
-        </div>
-    
-</div>
-            <!-- body end -->
-          </div>
-        </div>
-      </div>
-      <!-- scroll container end -->
-
-  </div>
-  <!-- app wrapper end -->
-
-  <div id="trm-back-top" class="trm-back-top" data-title="回到顶部">
-    <i class="iconfont fas fa-arrow-up"></i>
-</div>
-  
-<div class="trm-search-popup">
-    <div class="trm-search-header">
-        <span class="trm-search-popup-btn-close">
-            <i class="iconfont fas fa-times"></i>
-        </span>
-    </div>
-    <div class="form trm-search-form">
-        <input class="trm-search-input" type="text" placeholder="Searching for...">
-    </div>
-    <div class="trm-search-result-container">
-
-    </div>
-</div>
-
-  <!-- Plugin -->
-
-
-
-    
-    
-
-    
-<script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-
-    
-<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-
-
-    
-
-    
-        <script src="https://unpkg.com/hexo-theme-async@1.2.13/source/js/plugins/typing.js?v=1.2.13"></script>
-    
-
-    
-        
-<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
-
-        <script src="/js/plugins/local_search.js?v=1.2.13"></script>
-    
-
-    <!-- 数学公式 -->
-    
-        
-<script src="https://unpkg.com/katex@latest/dist/katex.min.js" data-swup-reload-script></script>
-
-        
-            
-<script src="https://unpkg.com/katex@latest/dist/contrib/copy-tex.min.js" data-swup-reload-script></script>
-
-        
-        
-<script src="https://unpkg.com/katex@latest/dist/contrib/auto-render.min.js" data-swup-reload-script></script>
-
-        <script data-swup-reload-script>
-              window.renderMathInElement(document.body, {
-                delimiters: [
-                    { left: '$$', right: '$$', display: true },
-                    { left: '$', right: '$', display: false },
-                    { left: '\\(', right: '\\)', display: false },
-                    { left: '\\[', right: '\\]', display: true },
-                ],
-                ...{},
-            })
-        </script>
-    
-
-
-    <!-- 评论插件 -->
-    
-
-
-
-<!-- CDN -->
-
-
-    
-
-    
-
-    
-
-
-
-
-    <!-- Service Worker -->
-    
-    <!-- baidu push -->
-    
-    <script data-swup-reload-script>
-        (function () {
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            }
-            else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-    </script>
-
-
-
-<script id="async-script" src="https://unpkg.com/hexo-theme-async@1.2.13/source/js/main.js?v=1.2.13"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
 </script>
 
+
+
+
+    <div id="aplayer"></div>
+
+<script src="/js/libs/APlayer.min.js"></script>
+
+
+<script src="/js/plugins/aplayer.js"></script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
-
 </html>
