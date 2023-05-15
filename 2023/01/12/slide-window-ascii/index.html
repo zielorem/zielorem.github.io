@@ -18,21 +18,21 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="问题描述给定一个字符串s，编写算法找出其中不含有重复字符的最长子串的长度。 问题分析题设要求子串中不出现重复字符，因此可以在遍历过程中将出现过的字符的位置记录在数组中。在出现过的字符再次出现后，当前子串便不再满足条件，因此需要更新子串的起始位置从而重建新子串。 同时，在遍历过程中还需记录每一步的子串长度，并将其与最长子串长度相比较，若大于最长子串长度则对其进行更新。 算法描述 以字符串“abcab">
+        <meta name="description" content="给定一个字符串s，编写算法找出其中不含有重复字符的最长子串的长度。 题设要求子串中不出现重复字符，因此可以在遍历过程中将出现过的字符的位置记录在数组中。在出现过的字符再次出现后，当前子串便不再满足条件，因此需要更新子串的起始位置从而重建新子串。 同时，在遍历过程中还需记录每一步的子串长度，并将其与最长子串长度相比较，若大于最长子串长度则对其进行更新。  以字符串“abcabc”为例，首先定义用于遍">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通过滑动窗口确定无重复字符的最长子串">
 <meta property="og:url" content="https://zielorem.github.io/2023/01/12/slide-window-ascii/index.html">
 <meta property="og:site_name" content="泾流的龙窝">
-<meta property="og:description" content="问题描述给定一个字符串s，编写算法找出其中不含有重复字符的最长子串的长度。 问题分析题设要求子串中不出现重复字符，因此可以在遍历过程中将出现过的字符的位置记录在数组中。在出现过的字符再次出现后，当前子串便不再满足条件，因此需要更新子串的起始位置从而重建新子串。 同时，在遍历过程中还需记录每一步的子串长度，并将其与最长子串长度相比较，若大于最长子串长度则对其进行更新。 算法描述 以字符串“abcab">
+<meta property="og:description" content="给定一个字符串s，编写算法找出其中不含有重复字符的最长子串的长度。 题设要求子串中不出现重复字符，因此可以在遍历过程中将出现过的字符的位置记录在数组中。在出现过的字符再次出现后，当前子串便不再满足条件，因此需要更新子串的起始位置从而重建新子串。 同时，在遍历过程中还需记录每一步的子串长度，并将其与最长子串长度相比较，若大于最长子串长度则对其进行更新。  以字符串“abcabc”为例，首先定义用于遍">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://zielorem.github.io/steps.png">
+<meta property="og:image" content="https://zielorem.github.io/img/slide-window-ascii/steps.png">
 <meta property="article:published_time" content="2023-01-12T06:32:23.000Z">
-<meta property="article:modified_time" content="2023-05-10T12:07:01.875Z">
+<meta property="article:modified_time" content="2023-05-15T16:01:02.451Z">
 <meta property="article:author" content="Zielorem">
-<meta property="article:tag" content="C&#x2F;C++">
 <meta property="article:tag" content="python">
+<meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zielorem.github.io/steps.png">
+<meta name="twitter:image" content="https://zielorem.github.io/img/slide-window-ascii/steps.png">
     
     
     <!--- Icon Part-->
@@ -288,8 +288,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-05-10 20:07:01</span>
-            <span class="mobile">2023-05-10 20:07</span>
+            <span class="desktop">2023-05-16 00:01:02</span>
+            <span class="mobile">2023-05-16 00:01</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -312,11 +312,11 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/C-C/">C/C++</a>&nbsp;
+                        <a href="/tags/python/">python</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/python/">python</a>&nbsp;
+                        | <a href="/tags/C-C/">C/C++</a>&nbsp;
                     </li>
                 
             </ul>
@@ -326,7 +326,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>667 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>655 Words</span>
         </span>
     
     
@@ -347,10 +347,10 @@
             
 
             <div class="article-content markdown-body">
-                <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>给定一个字符串<code>s</code>，编写算法找出其中不含有重复字符的<strong>最长子串</strong>的长度。</p>
-<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>题设要求子串中不出现重复字符，因此可以在遍历过程中将出现过的字符的位置记录在数组中。在出现过的字符再次出现后，当前子串便不再满足条件，因此需要更新子串的起始位置从而重建新子串。</p>
+                <p>给定一个字符串<code>s</code>，编写算法找出其中不含有重复字符的<strong>最长子串</strong>的长度。</p>
+<p>题设要求子串中不出现重复字符，因此可以在遍历过程中将出现过的字符的位置记录在数组中。在出现过的字符再次出现后，当前子串便不再满足条件，因此需要更新子串的起始位置从而重建新子串。</p>
 <p>同时，在遍历过程中还需记录每一步的子串长度，并将其与最长子串长度相比较，若大于最长子串长度则对其进行更新。</p>
-<h1 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h1><p><img lazyload src="/images/loading.svg" data-src="/steps.png" alt="steps"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/img/slide-window-ascii/steps.png" alt="steps"></p>
 <p>以字符串<code>“abcabc”</code>为例，首先定义用于遍历数组与充当子串尾指针的变量<code>end</code>，以及子串起始指针<code>start</code>。为了避免子串中出现重复字符，定义一个数组<code>index</code>，其具有两个功能</p>
 <ul>
 <li>用于记录字符串中每个字符在之前是否出现过</li>
@@ -381,7 +381,7 @@
         <li><strong>Created at:</strong> 2023-01-12 14:32:23</li>
         
             <li>
-                <strong>Updated at:</strong> 2023-05-10 20:07:01
+                <strong>Updated at:</strong> 2023-05-16 00:01:02
             </li>
         
         <li>
@@ -400,11 +400,11 @@
                 <ul class="post-tags-box">
                     
                         <li class="tag-item">
-                            <a href="/tags/C-C/">#C/C++</a>&nbsp;
+                            <a href="/tags/python/">#python</a>&nbsp;
                         </li>
                     
                         <li class="tag-item">
-                            <a href="/tags/python/">#python</a>&nbsp;
+                            <a href="/tags/C-C/">#C/C++</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -501,7 +501,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">通过滑动窗口确定无重复字符的最长子串</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0"><span class="nav-text">算法描述</span></a></li></ol>
+        
 
     </div>
 </div>

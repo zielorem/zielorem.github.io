@@ -18,27 +18,27 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="问题描述 假设存在A、B、C三根杆，汉诺塔问题即需要将位置A上的圆盘全部移动至位置C，在移动过程中每次仅能移动一个圆盘，且三个位置上的圆盘状态始终保持为大盘在下、小盘在上。 问题分析假设目标汉诺塔为n阶，当n&#x3D;3时，其正常流程如下：  将小盘移动至位置C，将中盘移动至位置B    将小盘移动至位置B，将大盘移动至位置C    将小盘移动至位置A，将中盘移动至位置C    将小盘移动至位置">
+        <meta name="description" content="假设存在A、B、C三根杆，汉诺塔问题即需要将位置A上的圆盘全部移动至位置C，在移动过程中每次仅能移动一个圆盘，且三个位置上的圆盘状态始终保持为大盘在下、小盘在上。 假设目标汉诺塔为n阶，当n&#x3D;3时，其正常流程如下：  将小盘移动至位置C，将中盘移动至位置B    将小盘移动至位置B，将大盘移动至位置C    将小盘移动至位置A，将中盘移动至位置C    将小盘移动至位置C   从该过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通过汉诺塔问题理解递归方法">
 <meta property="og:url" content="https://zielorem.github.io/2023/01/06/hanoi-tower/index.html">
 <meta property="og:site_name" content="泾流的龙窝">
-<meta property="og:description" content="问题描述 假设存在A、B、C三根杆，汉诺塔问题即需要将位置A上的圆盘全部移动至位置C，在移动过程中每次仅能移动一个圆盘，且三个位置上的圆盘状态始终保持为大盘在下、小盘在上。 问题分析假设目标汉诺塔为n阶，当n&#x3D;3时，其正常流程如下：  将小盘移动至位置C，将中盘移动至位置B    将小盘移动至位置B，将大盘移动至位置C    将小盘移动至位置A，将中盘移动至位置C    将小盘移动至位置">
+<meta property="og:description" content="假设存在A、B、C三根杆，汉诺塔问题即需要将位置A上的圆盘全部移动至位置C，在移动过程中每次仅能移动一个圆盘，且三个位置上的圆盘状态始终保持为大盘在下、小盘在上。 假设目标汉诺塔为n阶，当n&#x3D;3时，其正常流程如下：  将小盘移动至位置C，将中盘移动至位置B    将小盘移动至位置B，将大盘移动至位置C    将小盘移动至位置A，将中盘移动至位置C    将小盘移动至位置C   从该过程">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://zielorem.github.io/step1.png">
-<meta property="og:image" content="https://zielorem.github.io/step2.png">
-<meta property="og:image" content="https://zielorem.github.io/step3.png">
-<meta property="og:image" content="https://zielorem.github.io/step4.png">
-<meta property="og:image" content="https://zielorem.github.io/step5.png">
-<meta property="og:image" content="https://zielorem.github.io/process_n.png">
-<meta property="og:image" content="https://zielorem.github.io/process_3.png">
+<meta property="og:image" content="https://zielorem.github.io/img/hanoi-tower/step1.png">
+<meta property="og:image" content="https://zielorem.github.io/img/hanoi-tower/step2.png">
+<meta property="og:image" content="https://zielorem.github.io/img/hanoi-tower/step3.png">
+<meta property="og:image" content="https://zielorem.github.io/img/hanoi-tower/step4.png">
+<meta property="og:image" content="https://zielorem.github.io/img/hanoi-tower/step5.png">
+<meta property="og:image" content="https://zielorem.github.io/img/hanoi-tower/process_n.png">
+<meta property="og:image" content="https://zielorem.github.io/img/hanoi-tower/process_3.png">
 <meta property="article:published_time" content="2023-01-06T15:11:42.000Z">
-<meta property="article:modified_time" content="2023-05-10T12:06:08.872Z">
+<meta property="article:modified_time" content="2023-05-15T16:03:25.536Z">
 <meta property="article:author" content="Zielorem">
-<meta property="article:tag" content="C&#x2F;C++">
 <meta property="article:tag" content="python">
+<meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zielorem.github.io/step1.png">
+<meta name="twitter:image" content="https://zielorem.github.io/img/hanoi-tower/step1.png">
     
     
     <!--- Icon Part-->
@@ -294,8 +294,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-05-10 20:06:08</span>
-            <span class="mobile">2023-05-10 20:06</span>
+            <span class="desktop">2023-05-16 00:03:25</span>
+            <span class="mobile">2023-05-16 00:03</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -318,11 +318,11 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/C-C/">C/C++</a>&nbsp;
+                        <a href="/tags/python/">python</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/python/">python</a>&nbsp;
+                        | <a href="/tags/C-C/">C/C++</a>&nbsp;
                     </li>
                 
             </ul>
@@ -332,7 +332,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>813 Words</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>801 Words</span>
         </span>
     
     
@@ -353,25 +353,25 @@
             
 
             <div class="article-content markdown-body">
-                <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p><img lazyload src="/images/loading.svg" data-src="/step1.png" alt="step1"></p>
+                <p><img lazyload src="/images/loading.svg" data-src="/img/hanoi-tower/step1.png" alt="step1"></p>
 <p>假设存在A、B、C三根杆，汉诺塔问题即需要将位置A上的圆盘全部移动至位置C，在移动过程中每次仅能移动一个圆盘，且三个位置上的圆盘状态始终保持为大盘在下、小盘在上。</p>
-<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>假设目标汉诺塔为n阶，当n&#x3D;3时，其正常流程如下：</p>
+<p>假设目标汉诺塔为n阶，当n&#x3D;3时，其正常流程如下：</p>
 <ul>
 <li>将小盘移动至位置C，将中盘移动至位置B</li>
 </ul>
-<p><img lazyload src="/images/loading.svg" data-src="/step2.png" alt="step2"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/img/hanoi-tower/step2.png" alt="step2"></p>
 <ul>
 <li>将小盘移动至位置B，将大盘移动至位置C</li>
 </ul>
-<p><img lazyload src="/images/loading.svg" data-src="/step3.png" alt="step3"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/img/hanoi-tower/step3.png" alt="step3"></p>
 <ul>
 <li>将小盘移动至位置A，将中盘移动至位置C</li>
 </ul>
-<p><img lazyload src="/images/loading.svg" data-src="/step4.png" alt="step4"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/img/hanoi-tower/step4.png" alt="step4"></p>
 <ul>
 <li>将小盘移动至位置C</li>
 </ul>
-<p><img lazyload src="/images/loading.svg" data-src="/step5.png" alt="step5"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/img/hanoi-tower/step5.png" alt="step5"></p>
 <p>从该过程中可以发现，汉诺塔问题的大致流程为</p>
 <ul>
 <li>将位置A上除最大圆盘外的n-1个圆盘移动至位置B上</li>
@@ -389,10 +389,10 @@
 <li>将某位置上的一个圆盘移动至另一个位置上</li>
 </ul>
 <p>该操作实际为正常的移动圆盘操作。因此，n阶汉诺塔问题最终被逐渐降阶简化为基础的移动圆盘操作，该过程即计算机算法中的<strong>递归</strong>操作。</p>
-<h1 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h1><p>将移动一次圆盘的操作定义为函数<code>move(n, a, b, c)</code>,其中n表示该次操作移动的圆盘数量，a表示起始位置，b表示过渡位置，c表示目标位置，则使用递归解决n阶汉诺塔问题的具体流程可用图表示为</p>
-<p><img lazyload src="/images/loading.svg" data-src="/process_n.png" alt="process_n"></p>
+<p>将移动一次圆盘的操作定义为函数<code>move(n, a, b, c)</code>,其中n表示该次操作移动的圆盘数量，a表示起始位置，b表示过渡位置，c表示目标位置，则使用递归解决n阶汉诺塔问题的具体流程可用图表示为</p>
+<p><img lazyload src="/images/loading.svg" data-src="/img/hanoi-tower/process_n.png" alt="process_n"></p>
 <p>当n&#x3D;3时，汉诺塔问题的最终流程可用图表示为</p>
-<p><img lazyload src="/images/loading.svg" data-src="/process_3.png" alt="process_3"></p>
+<p><img lazyload src="/images/loading.svg" data-src="/img/hanoi-tower/process_3.png" alt="process_3"></p>
 <p>由上述流程可知，每阶汉诺塔问题均能使用同一流程解决。因此，函数<code>move(n, a, b, c)</code>具体内容为</p>
 <div class="highlight-container" data-rel="C"><figure class="iseeu highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">move</span><span class="params">(<span class="type">int</span> n, <span class="type">char</span> a, <span class="type">char</span> b, <span class="type">char</span> c)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%c --&gt; %c&quot;</span>, a, c);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    move(n<span class="number">-1</span>, a, c, b);</span><br><span class="line">    move(<span class="number">1</span>, a, b, c);</span><br><span class="line">    move(n<span class="number">-1</span>, b, a, c);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
@@ -414,7 +414,7 @@
         <li><strong>Created at:</strong> 2023-01-06 23:11:42</li>
         
             <li>
-                <strong>Updated at:</strong> 2023-05-10 20:06:08
+                <strong>Updated at:</strong> 2023-05-16 00:03:25
             </li>
         
         <li>
@@ -433,11 +433,11 @@
                 <ul class="post-tags-box">
                     
                         <li class="tag-item">
-                            <a href="/tags/C-C/">#C/C++</a>&nbsp;
+                            <a href="/tags/python/">#python</a>&nbsp;
                         </li>
                     
                         <li class="tag-item">
-                            <a href="/tags/python/">#python</a>&nbsp;
+                            <a href="/tags/C-C/">#C/C++</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -534,7 +534,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">通过汉诺塔问题理解递归方法</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0"><span class="nav-text">算法描述</span></a></li></ol>
+        
 
     </div>
 </div>
