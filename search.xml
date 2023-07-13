@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>互联网极端情绪传播的传染病模型</title>
+      <link href="/2023/07/13/extreme-polarization/"/>
+      <url>/2023/07/13/extreme-polarization/</url>
+      
+        <content type="html"><![CDATA[<p>当前，互联网的去抑制效应愈发明显，去抑制效应下产生的极端情绪通过社交网络传播。在此种效应与环境下，个体在线表达的意见不一定反映个体的实际意见，而趋向于放大个人对某事的实际感受，此种现象被称为<strong>意见放大</strong>。放大后的意见相较个体的实际意见更为强烈，此种行为旨在通过以更肯定或更否定的情绪扭曲原始意见，从而吸引注意力。社交媒体滋生了众多极端的意见。这些意见一般具有以下其中几个特征：</p><ul><li>在连续意见模型中，极端意见值达到最初意见范围的极值或超出一般的意见值范围；</li><li>随时间增长，异常意见值于不同意见边界值上下浮动，或伴随剧烈波动；</li><li>部分个体所表达的意见值与其实际意见值不在同一区间内；</li><li>异常意见一般包括毫无根据的假设与概括，或选择性引用与编辑。</li></ul><p>通过意见放大，当前社交媒体中的极端程度日益增长，使其成为了群体极化的潜在原因之一。先前的群体极化研究工作主要围绕个体之间意见的相互作用展开，而Lim与Bentley所提出的社会意见放大模型（Social Opinion Amplification Model, SOAM）则假设意见通过意见放大可能会偏向于更极端的情绪，从而识别在人群中产生极端极化所需的最小特征。</p><h2 id="社会意见放大模型"><a href="#社会意见放大模型" class="headerlink" title="社会意见放大模型"></a>社会意见放大模型</h2><p>社会意见放大模型（SOAM）由个体网络组成。与有界置信模型类似，其中个体的意见是连续的，且个体在每个时间步骤中相互影响。除普通意见外，该模型通过意见放大现象引入了放大化意见（amplified version of opinion ）的概念，并基于Hegselmann–Krause模型进行研究。</p><p>对于在线社交网络中的个体A与个体B，若B在没有收到回应的情况下赞同A，则会导致A影响B，而B不影响A。因此，该模型通过一个随机有向图网络模拟社交网络结构，其中每个个体节点平均包括$k$个连接，其中$k\in[0,,n]$。假设网络中的个体$i$在时间$t&#x3D;0$时具有初始观点$O_{i,t&#x3D;0}$，其范围为$[-1.0,,1.0]$内的随机数，左极值$-1.0$代表极度否定的观点，而右极值$1.0$代表极度肯定的观点。则时间$t&gt;0$时个体$i$的观点为</p><p>$$O_{i,t}&#x3D;\frac{O_{i,t-1}+\sum_{j\in{I_{i,t}}}SO_{j,t}}{1+\vert I_{i,t}\vert}$$</p><p>其中$O_{i,t-1}$为时间点$t$时个体$i$在前一时间点的观点，$I_{i,t}$为时间点$t$时与个体$i$相连接的个体集合，个体$i$的观点与其相连个体观点的差异在与Hegselmann–Krause模型类似的阈值$\varepsilon$内，即</p><p>$$I_{i,t}&#x3D;{j\vert \vert O_{i,t-1}-SO_{j,t-i}\vert\leq\varepsilon}$$</p><p>而个体$i$时间点$t$时所表达的放大化意见为</p><p>$$SO_{i,t}&#x3D;\begin{cases} \begin{cases} O_{i,t-1}-\sigma_{i,t},if;O_{i,t-1}&lt;0\ O_{i,t-1}+\sigma_{i,t},if;O_{i,t-1}\geq0 \end{cases}\quad if;E_{i,t}&#x3D;True\ O_{i,t-1}\qquad\qquad\qquad\qquad\qquad, otherwise\ \end{cases}$$</p><p>其中，$E_{i,t}$为判断个体$i$是否将在时间$t$时放大其观点的参数，其值由随机生成的概率$P_{i,t}$决定；$\sigma_{i,t}$为个体$i$在时间$t$时的观点放大程度，其值为$[0,,s]$内的随机数；$s$为观点放大程度的上限，其范围为$[0,1]$。观点值$O_{i,t&gt;0}$可能随时间$t$增长而超出初始意见值范围。由此可见，SOAM相较Hegselmann–Krause模型与SIEM的差异如下表所示。</p><table><thead><tr><th align="left">模型</th><th align="left">网络</th><th align="left">意见表达形式</th><th align="left">意见更新形式</th><th align="left">个体影响力</th></tr></thead><tbody><tr><td align="left">HK有界置信模型</td><td align="left">全连接</td><td align="left">个体的想法与其所表达的意见完全一致</td><td align="left">当且仅当个体间观点的差值小于阈值$\varepsilon$</td><td align="left">每个个体均影响其余所有个体</td></tr><tr><td align="left">SIEM</td><td align="left">随机连接，每个个体均与平均5个其他个体连接，并伴随时间生成新网络</td><td align="left">个体的想法与其所表达的意见完全一致</td><td align="left">当且仅当个体的确定性低于与其互动的其他个体的平均确定性</td><td align="left">影响仅发生于相互连接的个体间</td></tr><tr><td align="left">SOAM</td><td align="left">随机连接，每个个体与平均2个、5个或10个个体连接</td><td align="left">部分个体进行意见放大</td><td align="left">当且仅当个体间观点的差值小于阈值$\varepsilon$</td><td align="left">影响仅发生于相互连接的个体间</td></tr><tr><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td><td align="left"></td></tr></tbody></table><p>基于意见放大将导致群体极化的假设，Lim与Bentley研究了意见放大在不同置信度阈值下对意见动态的影响，其将不包含意见放大的基础模型与包含意见放大的改进模型进行比较，即以下两种模型</p><ul><li>在置信阈值$\varepsilon&#x3D;0.2$及$\varepsilon&#x3D;0.8$下不包含意见放大的基础模型</li><li>包含意见放大个体的改进模型，其中意见放大的个体比率为$\pi&#x3D;0.2$及$\pi&#x3D;0.5$，个体进行意见放大的概率为$p&#x3D;0.5$，意见放大程度为$s&#x3D;0.5$，置信阈值为$\varepsilon&#x3D;0.2$及$\varepsilon&#x3D;0.8$</li></ul><p>模拟结果如下图所示，其中$t&#x3D;400$，$n&#x3D;100$，$k&#x3D;5$</p><p><img lazyload src="/images/loading.svg" data-src="/Users/zieloremdragon/abyss/source/img/extreme-polarization/exp-res.png" alt="exp-res"></p><p>由结果可知，网络在没有意见扩大的情况下，无论意见极化结果为单簇或多簇，意见范围总是位于初始范围内。而当个体存在意见放大行为后，超界意见将诱导极端极化现象发生。同时，存在意见放大行为的个体比率越多，极端极化现象将更快形成且规模更大。SOAM表明意见放大现象会在人群中造成极端的两极分化，但过度极端的言论会导致个体无法再与其他人相关。当置信阈值$\varepsilon$高时，冲突水平将迅速下降。</p><h2 id="情绪传播模型"><a href="#情绪传播模型" class="headerlink" title="情绪传播模型"></a>情绪传播模型</h2><p>在Anderson与May的基础传染病模型中，个体存在“易感”与“感染”两种基础状态。“易感”代表个体暂时未感染某种疾病，而“感染”指代个体已患有某种疾病。当易感者与感染者接触后，这种疾病可能将以传播率$\beta$传播于易感者。个体被感染后，无论其与易感或患病个体的接触情况如何，其均以恒定的速率从疾病中恢复。在一类疾病模型中，传染过程大致为易感-感染-恢复（SIR）三个状态，康复后个体对感染进一步产生免疫力，并重新进入至“恢复”状态。部分不具有免疫力的传染性疾病在康复后将重新恢复至易感状态，其过程被划分为易感-感染-易感（SIS）三个状态。</p><p>与传染性疾病不同，情绪在个体中可能多次因传播以外的自发因素发生。因此，Alison与David扩展了SIS模型，使得模型中未受感染的个体以恒定速率自发感染，而与受感染者的接触者无关。被修改后的模型称为SISa，其模式为</p><p><img lazyload src="/images/loading.svg" data-src="/Users/zieloremdragon/abyss/source/img/extreme-polarization/sisa-model.jpg" alt="sisa-model"></p><p>在该模型中，$I$指代患病个体，$S$指代易感个体。个体状态可通过三种过程改变</p><ul><li>受感染个体以传染率$\beta$传播于易感接触者</li><li>易感个体以感染率$\alpha$自发感染</li><li>受感染者以速率$g$自发恢复至易感状态</li></ul><p>因此，该模型中个体被感染的变化率为$\alpha+\beta n_I$，其中$n_I$为个体所接触被感染者数目。相应微分方程为</p><p>$$\begin{cases} \frac{dS}{dt}&#x3D;-\beta SI+gI-aS\\frac{dI}{dt}&#x3D;\beta SI-gI+aS\\ I+S&#x3D;N\end{cases}$$</p><p>其中$S$指代易感个体总数，$I$指代患病个体总数，个体总数$N$为恒定值。由方程可知，个体从易感过渡至被感染状态的概率为受感染接触者数量的线性函数。对于小于状态过渡平均时间的时间间隔$\Delta t$分隔的数据点，个体在$\Delta t$后从易感到受感染的概率可由$P(S\rightarrow I,\Delta t)\sim(\alpha+\beta nI)\Delta t$给出，而个体在$\Delta t$后恢复至易感状态的过渡概率可由$P(I\rightarrow S,\Delta t)\sim g\Delta t$给出，被测时间间隔必须大于状态的平均时长以在时间间隔内保持低水平的双重过渡概率。</p><h2 id="极端情绪传播"><a href="#极端情绪传播" class="headerlink" title="极端情绪传播"></a>极端情绪传播</h2><p>作为原生情绪种类之一，极端情绪可通过社交媒体途径传播，也可以自发形式出现。为引人注目，社交媒体中部分个体自发出现极端情绪，并将情绪通过极端言论形式传播。在融合SOAM与SISa后，假设个体$I$于时间$t$的观点$O_{i,t&gt;0}$以概率$P_{i,t&gt;0}$发生极端情绪突变，接触该情绪的其他个体在传染病模型下的感染率$a$与有界置信模型的阈值$\varepsilon$概念相当。同时，与SISa模型不同，极端情绪可通过其他个体的反复传播而加剧，此时其恢复速率为$g-\beta n_I$，从而可能产生负恢复速率以加剧极端情绪。</p><p>因此，可通过以下方式阻断群体极化加剧</p><ul><li>减少或清除个体接触的$n_I$连接，便于个体以速率$g$恢复</li><li>冻结极端情绪个体，阻止其进一步传播</li><li>加入意见值介于$[-1.0,1.0]$间的平衡意见</li></ul><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] Condie, S. A. &amp; Condie, C. M. Stochastic events can explain  sustained clustering and polarisation of opinions in social networks. <em>Sci. Rep.</em> <strong>11</strong>, 1355 (2021).</p><p>[2] Cinelli, M., Morales, G. D. F., Galeazzi, A., Quattrociocchi, W. &amp; Starnini, M. The echo chamber effect on social media. <em>Proc. Natl. Acad. Sci. U.S.A.</em> <strong>118</strong>, e2023301118 (2021).</p><p>[3] DeGroot, M. H. Reaching a consensus. <em>J. Am. Stat. Assoc.</em> <strong>69</strong>, 118–121 (1974).</p><p>[4] Deffuant, G., Neau, D., Amblard, F. &amp; Weisbuch, G. Mixing beliefs among interacting agents. <em>Adv. Complex Syst.</em> <strong>3</strong>, 11 (2001).</p><p>[5] Hegselmann, R. &amp; Krause, U. Opinion dynamics and bounded confidence models, analysis, and simulation. <em>J. Artif. Soc. Soc. Simul.</em> <strong>5</strong>, 33 (2002).</p><p>[6] Anderson R. M., May R. M.1991Infectious diseases of humans: dynamics and control. Oxford, UK: Oxford University Press</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> opinion_dynamics </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> polarization </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>通过排列组合问题理解回溯算法</title>
       <link href="/2023/01/18/permutations-and-combinations/"/>
       <url>/2023/01/18/permutations-and-combinations/</url>
@@ -13,14 +38,14 @@
       
       <categories>
           
-          <category> algorithm </category>
+          <category> coding </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> C/C++ </tag>
+            <tag> algorithm </tag>
             
         </tags>
       
@@ -38,16 +63,14 @@
       
       <categories>
           
-          <category> algorithm </category>
+          <category> coding </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
-            
-            <tag> C/C++ </tag>
+            <tag> algorithm </tag>
             
         </tags>
       
@@ -65,16 +88,14 @@
       
       <categories>
           
-          <category> algorithm </category>
+          <category> coding </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
-            
-            <tag> C/C++ </tag>
+            <tag> algorithm </tag>
             
         </tags>
       
@@ -92,16 +113,14 @@
       
       <categories>
           
-          <category> algorithm </category>
+          <category> coding </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
-            
-            <tag> C/C++ </tag>
+            <tag> algorithm </tag>
             
         </tags>
       
@@ -119,16 +138,14 @@
       
       <categories>
           
-          <category> algorithm </category>
+          <category> coding </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
-            
-            <tag> C/C++ </tag>
+            <tag> algorithm </tag>
             
         </tags>
       
@@ -146,16 +163,14 @@
       
       <categories>
           
-          <category> algorithm </category>
+          <category> coding </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
-            
-            <tag> C/C++ </tag>
+            <tag> algorithm </tag>
             
         </tags>
       
@@ -173,16 +188,14 @@
       
       <categories>
           
-          <category> algorithm </category>
+          <category> coding </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
-            
-            <tag> C/C++ </tag>
+            <tag> algorithm </tag>
             
         </tags>
       
@@ -200,16 +213,14 @@
       
       <categories>
           
-          <category> algorithm </category>
+          <category> coding </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
-            
-            <tag> C/C++ </tag>
+            <tag> algorithm </tag>
             
         </tags>
       
@@ -227,16 +238,14 @@
       
       <categories>
           
-          <category> algorithm </category>
+          <category> coding </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
-            
-            <tag> C/C++ </tag>
+            <tag> algorithm </tag>
             
         </tags>
       
@@ -254,14 +263,14 @@
       
       <categories>
           
-          <category> summary </category>
+          <category> coding </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
+            <tag> summary </tag>
             
         </tags>
       
@@ -279,14 +288,14 @@
       
       <categories>
           
-          <category> summary </category>
+          <category> coding </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
+            <tag> summary </tag>
             
         </tags>
       
@@ -304,14 +313,14 @@
       
       <categories>
           
-          <category> summary </category>
+          <category> coding </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> python </tag>
+            <tag> summary </tag>
             
         </tags>
       
