@@ -18,12 +18,12 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="Question 给定一个头结点为head的非空单链表，返回链表的中间结点。若存在两个中间结点，则返回第二个中间结点。    链表的不足在于其无法通过下标直接访问特定结点，需要逐个遍历结点以定位特定结点。一般情况下，可以将链表中的数据内容逐个遍历至数组中，从而将链表转化为数组，进而直接输出数组下标为  的数组元素，但其代码比较繁杂。因此，本题采用更为巧妙的快慢指针法。  快慢指针法即同时设置一个快">
+        <meta name="description" content="Question 给定一个头结点为head的非空单链表，返回链表的中间结点。若存在两个中间结点，则返回第二个中间结点。   链表的不足在于其无法通过下标直接访问特定结点，需要逐个遍历结点以定位特定结点。一般情况下，可以将链表中的数据内容逐个遍历至数组中，从而将链表转化为数组，进而直接输出数组下标为  的数组元素，但其代码比较繁杂。因此，本题采用更为巧妙的快慢指针法。  快慢指针法即同时设置一个快指">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通过快慢指针法定位链表的中间结点">
 <meta property="og:url" content="https://zielorem.github.io/2023/01/07/fast-slow/index.html">
 <meta property="og:site_name" content="泾流的龙窝">
-<meta property="og:description" content="Question 给定一个头结点为head的非空单链表，返回链表的中间结点。若存在两个中间结点，则返回第二个中间结点。    链表的不足在于其无法通过下标直接访问特定结点，需要逐个遍历结点以定位特定结点。一般情况下，可以将链表中的数据内容逐个遍历至数组中，从而将链表转化为数组，进而直接输出数组下标为  的数组元素，但其代码比较繁杂。因此，本题采用更为巧妙的快慢指针法。  快慢指针法即同时设置一个快">
+<meta property="og:description" content="Question 给定一个头结点为head的非空单链表，返回链表的中间结点。若存在两个中间结点，则返回第二个中间结点。   链表的不足在于其无法通过下标直接访问特定结点，需要逐个遍历结点以定位特定结点。一般情况下，可以将链表中的数据内容逐个遍历至数组中，从而将链表转化为数组，进而直接输出数组下标为  的数组元素，但其代码比较繁杂。因此，本题采用更为巧妙的快慢指针法。  快慢指针法即同时设置一个快指">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://zielorem.github.io/img/fast-slow/listnode.PNG">
 <meta property="article:published_time" content="2023-01-07T06:18:10.000Z">
@@ -51,7 +51,13 @@
 <link rel="stylesheet" href="/css/style.css">
 
     
-<link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
 
     <!--- Font Part-->
     
@@ -64,8 +70,9 @@
     <script id="hexo-configurations">
     let Global = window.Global || {};
     Global.hexo_config = {"hostname":"zielorem.github.io","root":"/","language":"en","path":"search.xml"};
-    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#4a5eb6","secondary":"#7ec1ff"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":false,"style":"fixed","image":{"light":"/images/banner.jpg","dark":"/images/banner.jpg"},"title":null,"subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"mini","audios":[{"name":"Evans","artist":"DJ YOSHITAKA","url":"/images/Evans.mp3","cover":"/images/evans.webp"}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.3","navbar":{"auto_hide":false,"color":{"left":"#7ec1ff","right":"#4a5eb6","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Links":{"path":"/friends","icon":"fa-regular fa-link"},"About":{"path":"/about","icon":"fa-regular fa-user"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"随缘更新中...ww","links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":null,"skip_dirs":[]}},"colors":{"primary":"#4a5eb6","secondary":"#7ec1ff"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":false,"style":"fixed","image":{"light":null,"dark":null},"title":null,"subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"mini","audios":[{"name":"Carin at the Liquor Store","artist":"The National","url":"/images/The National - Carin at the Liquor Store.mp3","cover":"/images/cover.jpg"}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.2.2","navbar":{"auto_hide":false,"color":{"left":"#7ec1ff","right":"#4a5eb6","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Links":{"path":"/links","icon":"fa-regular fa-link"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"随缘更新中...ww","links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/9/18 11:45:14"};
     Global.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    Global.data_config = {"masonry":false};
   </script>
     
     <!--- Fontawesome Part-->
@@ -257,7 +264,7 @@ mjx-container[display="true"] + br {
                             <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class="" 
-                                    href="/friends"  >
+                                    href="/links"  >
                                     
                                         
                                             <i class="fa-regular fa-link"></i>
@@ -269,27 +276,17 @@ mjx-container[display="true"] + br {
                                 
                             </li>
                     
-                        
-                            <li class="navbar-item">
-                                <!-- Menu -->
-                                <a class="" 
-                                    href="/about"  >
-                                    
-                                        
-                                            <i class="fa-regular fa-user"></i>
-                                        
-                                        ABOUT
-                                    
-                                </a>
-                                <!-- Submenu -->
-                                
-                            </li>
                     
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
                     
                 </ul>
             </div>
             <!-- Mobile -->
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
                 
                 <div class="icon-item navbar-bar">
                     <div class="navbar-bar-middle"></div>
@@ -320,27 +317,12 @@ mjx-container[display="true"] + br {
                 
                     <li class="drawer-navbar-item flex-center">
                         <a class="" 
-                        href="/friends"  >
+                        href="/links"  >
                              
                                 
                                     <i class="fa-regular fa-link"></i>
                                 
                                 LINKS
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                    
-            
-                
-                    <li class="drawer-navbar-item flex-center">
-                        <a class="" 
-                        href="/about"  >
-                             
-                                
-                                    <i class="fa-regular fa-user"></i>
-                                
-                                ABOUT
                             
                         </a>
                     </li>
@@ -369,15 +351,14 @@ mjx-container[display="true"] + br {
     <div class="post-page-container">
         <div class="article-content-container">
 
-            
-            
-                <div class="article-title">
-                    <h1 class="article-title-regular">通过快慢指针法定位链表的中间结点</h1>
-                </div>
-            
+            <div class="article-title">
                 
+                  <h1 class="article-title-regular">通过快慢指针法定位链表的中间结点</h1>
+                
+              </div>
+              
+                     
             
-
             
                 <div class="article-header">
                     <div class="avatar">
@@ -393,14 +374,14 @@ mjx-container[display="true"] + br {
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
         <span class="desktop">2023-01-07 14:18:10</span>
-        <span class="mobile">2023-01-07 14:18</span>
+        <span class="mobile">2023-01-07 14:18:10</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
             <span class="desktop">2023-07-14 01:07:34</span>
-            <span class="mobile">2023-07-14 01:07</span>
+            <span class="mobile">2023-07-14 01:07:34</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -410,9 +391,14 @@ mjx-container[display="true"] + br {
             <i class="fa-regular fa-folders"></i>&nbsp;
             <ul>
                 
-                    <li>
-                        <a href="/categories/coding/">coding</a>&nbsp;
-                    </li>
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/coding/">coding</a>&nbsp;
+                        </li>
+                    
+                    
                 
             </ul>
         </span>
@@ -454,9 +440,9 @@ mjx-container[display="true"] + br {
             
 
             <div class="article-content markdown-body">
-                <div class="note-large notel-blue"><div class="notel-title"><p>Question</p>
+                <div class="note-large blue"><div class="notel-title"><p>Question</p>
 </div><div class="notel-content"><p>给定一个头结点为<code>head</code>的非空单链表，返回链表的中间结点。若存在两个中间结点，则返回第二个中间结点。</p>
- </div></div>
+</div></div>
 
 <p>链表的不足在于其无法通过下标直接访问特定结点，需要逐个遍历结点以定位特定结点。一般情况下，可以将链表中的数据内容逐个遍历至数组中，从而将链表转化为数组，进而直接输出数组下标为 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.781ex;" xmlns="http://www.w3.org/2000/svg" width="5.852ex" height="2.379ex" role="img" focusable="false" viewbox="0 -706.5 2586.7 1051.5"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mfrac"><g data-mml-node="mi" transform="translate(220,394) scale(0.707)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"/></g><g data-mml-node="mn" transform="translate(255.4,-345) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g><rect width="624.3" height="60" x="120" y="220"/></g><g data-mml-node="mo" transform="translate(1086.5,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"/></g><g data-mml-node="mn" transform="translate(2086.7,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/></g></g></g></svg></mjx-container> 的数组元素，但其代码比较繁杂。因此，本题采用更为巧妙的<strong>快慢指针法</strong>。</p>
 <p><img lazyload src="/images/loading.svg" data-src="/img/fast-slow/listnode.PNG" alt="listnode"></p>
@@ -651,16 +637,13 @@ mjx-container[display="true"] + br {
         <div class="theme-info info-item">
             <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
                 <br>
-            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.1.3</a>
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.2.2</a>
         </div>
         
         
         
-            <div id="start_div" style="display:none">
-                2022/9/18 11:45:14
-            </div>
             <div>
-                Nest up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
             </div>
         
         
@@ -766,6 +749,35 @@ mjx-container[display="true"] + br {
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 
 </main>
@@ -783,6 +795,10 @@ mjx-container[display="true"] + br {
 
 <script src="/js/tools/lightDarkSwitch.js"></script>
 
+
+
+    
+<script src="/js/tools/localSearch.js"></script>
 
 
 
@@ -803,7 +819,7 @@ mjx-container[display="true"] + br {
 <script src="/js/tools/runtime.js"></script>
 
     
-<script src="/js/layouts/odometer.min.js"></script>
+<script src="/js/libs/odometer.min.js"></script>
 
     
 <link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
@@ -816,7 +832,6 @@ mjx-container[display="true"] + br {
 
   
 <script src="/js/plugins/typed.js"></script>
-
 
 
 
