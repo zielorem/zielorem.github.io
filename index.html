@@ -14,7 +14,7 @@
         
         
         
-            <link rel="preconnect" href="https://cdn.staticfile.org" crossorigin>
+            <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
         
     
     <!--- Seo Part-->
@@ -51,12 +51,12 @@
 
 
     
-        <link rel="stylesheet" href="//cdn.staticfile.org/hexo-theme-redefine/2.5.0/assets/build/styles.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/assets/build/styles.css">
     
 
-    <link rel="stylesheet" href="//cdn.staticfile.org/hexo-theme-redefine/2.5.0/fonts/fonts.css">
-    <link rel="stylesheet" href="//cdn.staticfile.org/hexo-theme-redefine/2.5.0/fonts/Satoshi/satoshi.css">
-    <link rel="stylesheet" href="//cdn.staticfile.org/hexo-theme-redefine/2.5.0/fonts/Chillax/chillax.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fonts/fonts.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fonts/Satoshi/satoshi.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fonts/Chillax/chillax.css">
     <!--- Font Part-->
     
     
@@ -73,10 +73,10 @@
   </script>
     
     <!--- Fontawesome Part-->
-    <link rel="stylesheet" href="//cdn.staticfile.org/hexo-theme-redefine/2.5.0/fontawesome/fontawesome.min.css">
-    <link rel="stylesheet" href="//cdn.staticfile.org/hexo-theme-redefine/2.5.0/fontawesome/brands.min.css">
-    <link rel="stylesheet" href="//cdn.staticfile.org/hexo-theme-redefine/2.5.0/fontawesome/solid.min.css">
-    <link rel="stylesheet" href="//cdn.staticfile.org/hexo-theme-redefine/2.5.0/fontawesome/regular.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/regular.min.css">
     
     
     
@@ -385,7 +385,7 @@ mjx-container[display="true"] + br {
                         <div class="label">Categories</div>
                     </a>
                     <a class="item" href="/archives">
-                        <div class="number">15</div>
+                        <div class="number">16</div>
                         <div class="label">Posts</div>
                     </a>
                 </div>
@@ -454,17 +454,66 @@ mjx-container[display="true"] + br {
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/10/31/hypernetwork-polarization-1/">
-                        超网络下舆论极化模型初步构想
+                    <a href="/2023/11/23/hypernetwork-polarization-2/">
+                        极端情绪传播下改进的Hegselmann–Krause模型
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        过往研究通常使用单层图网络探究舆论极化相关问题，而当今日趋复杂的社会网络结构需要更立体的网络解决问题。超网络即是一种高于而又超于现存网络的复杂网络，是多层网络嵌套的集合。其具有以下特性：
+                        通常，人们在形成观点时，不会简单地接受或无视他人的意见，而是在某种程度上会参考其他人的想法。假设群体中有个个体，个体在时刻的观点值为，其中，群体在时刻的观点值用矢量表示。表示个体在个体产生的影响程度，其中且。个体在时刻的观点更新为
 
-与单层网络类似，其层内同级节点存在连接
-不同层的节点之间存在...
+此时个体在时刻的...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Thu Nov 23 2023 14:08:17 GMT+0800">
+                
+                    2023-11-23
+                
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/polarization/">polarization</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2023/11/23/hypernetwork-polarization-2/">Read more<span class="seo-reader-text">极端情绪传播下改进的Hegselmann–Krause模型</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/10/31/hypernetwork-polarization-1/">
+                        超网络下三层基础舆论极化模型构想
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        过往研究通常使用单层图网络探究舆论极化相关问题，选民模型、Hegselmann–Krause模型、Deffaunt模型等经典的舆论模型在模拟舆论网络时存在共同之处。其均通过节点代表持有观点的个体，节点与节点之间的连接代表个体之间观点的交互，这种交互可...
                     
                 </div>
 
@@ -493,7 +542,7 @@ mjx-container[display="true"] + br {
         
     </div>
 
-    <a href="/2023/10/31/hypernetwork-polarization-1/">Read more<span class="seo-reader-text">超网络下舆论极化模型初步构想</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/10/31/hypernetwork-polarization-1/">Read more<span class="seo-reader-text">超网络下三层基础舆论极化模型构想</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -1057,76 +1106,6 @@ mjx-container[display="true"] + br {
 
             </li>
         
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/01/07/fast-slow/">
-                        通过快慢指针法定位链表的中间结点
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        Question
-给定一个头结点为head的非空单链表，返回链表的中间结点。若存在两个中间结点，则返回第二个中间结点。
-
-
-链表的不足在于其无法通过下标直接访问特定结点，需要逐个遍历结点以定位特定结点。一般情况下，可以将链表中的数据内容逐个遍历至数组...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sat Jan 07 2023 14:18:10 GMT+0800">
-                
-                    2023-01-07
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/coding/">coding</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/algorithm/">algorithm</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2023/01/07/fast-slow/">Read more<span class="seo-reader-text">通过快慢指针法定位链表的中间结点</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
     </ul>
 
     <div class="home-paginator">
@@ -1295,7 +1274,7 @@ mjx-container[display="true"] + br {
 </main>
 
 
-    <script src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/libs/Swup.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/libs/SwupSlideTheme.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/libs/SwupScriptsPlugin.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/libs/SwupProgressPlugin.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/libs/SwupScrollPlugin.min.js"></script><script src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/libs/SwupPreloadPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/Swup.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupSlideTheme.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupScriptsPlugin.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupProgressPlugin.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupScrollPlugin.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupPreloadPlugin.min.js"></script>
 <script>
     const swup = new Swup({
         plugins: [
@@ -1321,50 +1300,65 @@ mjx-container[display="true"] + br {
 
 
 
-<script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/tools/imageViewer.js"></script><script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/utils.js"></script><script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/main.js"></script><script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/layouts/navbarShrink.js"></script><script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/tools/scrollTopBottom.js"></script><script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/tools/lightDarkSwitch.js"></script><script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/layouts/categoryList.js"></script>
+<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/imageViewer.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/utils.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/main.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/navbarShrink.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/scrollTopBottom.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/lightDarkSwitch.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/categoryList.js"></script>
 
 
-    <script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/tools/localSearch.js"></script>
-
-
-
-    <script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/tools/codeBlock.js"></script>
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/localSearch.js"></script>
 
 
 
-    <script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/layouts/lazyload.js"></script>
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/codeBlock.js"></script>
 
 
 
-    <script src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/tools/runtime.js"></script>
-    <script src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/libs/odometer.min.js"></script>
-    <link rel="stylesheet" href="//cdn.staticfile.org/hexo-theme-redefine/2.5.0/assets/odometer-theme-minimal.css">
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/lazyload.js"></script>
 
 
 
-  <script src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/libs/Typed.min.js"></script>
-  <script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/plugins/typed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/runtime.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/odometer.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/assets/odometer-theme-minimal.css">
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/Typed.min.js"></script>
+  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/typed.js"></script>
 
 
 
 
 
-    <script src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/libs/minimasonry.min.js"></script>
-    <script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/plugins/masonry.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/minimasonry.min.js"></script>
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/masonry.js"></script>
 
 
 
 <div class="post-scripts" data-swup-reload-script>
     
-        <script src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/libs/anime.min.js"></script>
-        <script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/tools/tocToggle.js"></script><script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/layouts/toc.js"></script><script type="module" src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/plugins/tabs.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/anime.min.js"></script>
+        <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/tocToggle.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/toc.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/tabs.js"></script>
     
 </div>
 
 
     <div id="aplayer"></div>
-<script src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/libs/APlayer.min.js"></script>
-<script src="https://cdn.staticfile.org/hexo-theme-redefine/2.5.0/js/plugins/aplayer.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/APlayer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/aplayer.js"></script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
