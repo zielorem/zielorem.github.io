@@ -14,7 +14,7 @@
         
         
         
-            <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+            <link rel="preconnect" href="https://cdn.staticfile.org" crossorigin>
         
     
     <!--- Seo Part-->
@@ -46,17 +46,178 @@
         
         Zielorem&#39;s dragon nest
     </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        Zielorem&#39;s dragon nest
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
     
 <link rel="stylesheet" href="/css/style.css">
 
 
     
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/assets/build/styles.css">
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
     
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fonts/fonts.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fonts/Satoshi/satoshi.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fonts/Chillax/chillax.css">
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
     <!--- Font Part-->
     
     
@@ -67,16 +228,24 @@
     
     <script id="hexo-configurations">
     window.config = {"hostname":"zielorem.github.io","root":"/","language":"en","path":"search.xml"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":null,"skip_dirs":[]}},"colors":{"primary":"#4a5eb6","secondary":"#7ec1ff"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":false,"style":"fixed","image":{"light":"/images/banner.png","dark":"/images/banner.png"},"title":"Zielorem's Dragon Nest","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"mini","audios":[{"name":"Carin at the Liquor Store","artist":"The National","url":"/images/The National - Carin at the Liquor Store.mp3","cover":"/images/cover.jpg"}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.5.0","navbar":{"auto_hide":false,"color":{"left":"#7ec1ff","right":"#4a5eb6","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Links":{"path":"/links","icon":"fa-regular fa-link"},"Gallery":{"path":"/masonry/","icon":"fa-solid fa-camera"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"随缘更新中...ww","links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/9/18 11:45:14"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":null,"skip_dirs":[]}},"colors":{"primary":"#4a5eb6","secondary":"#7ec1ff"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":false,"style":"static","image":{"light":"/images/banner.png","dark":"/images/banner.png"},"title":"Zielorem's Dragon Nest","subtitle":{"text":["Better to run than curse the road."],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"mini","audios":[{"name":"Carin at the Liquor Store","artist":"The National","url":"/images/The National - Carin at the Liquor Store.mp3","cover":"/images/cover.jpg"}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.0","navbar":{"auto_hide":false,"color":{"left":"#7ec1ff","right":"#4a5eb6","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Links":{"path":"/links","icon":"fa-regular fa-link"},"Gallery":{"path":"/masonry/","icon":"fa-solid fa-camera"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"随缘更新中...ww","links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/9/18 11:45:14"};
     window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
     window.data = {"masonry":true};
   </script>
     
     <!--- Fontawesome Part-->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/fontawesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/brands.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/solid.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/regular.min.css">
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
     
     
     
@@ -202,9 +371,9 @@ mjx-container[display="true"] + br {
 
     
         <span class="pjax-progress-bar"></span>
-        <span class="swup-progress-icon">
-            <i class="fa-solid fa-circle-notch fa-spin"></i>
-        </span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
     
 </div>
 
@@ -218,7 +387,7 @@ mjx-container[display="true"] + br {
 
         <div class="main-content-header">
             <header class="navbar-container">
-    
+
     <div class="navbar-content">
         <div class="left">
             
@@ -235,49 +404,52 @@ mjx-container[display="true"] + br {
                 <ul class="navbar-list">
                     
                         
+                            
+
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active" 
-                                    href="/"  >
-                                    
-                                        
-                                            <i class="fa-regular fa-house"></i>
-                                        
-                                        HOME
+                                <a class="active"
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
                                     
                                 </a>
+
                                 <!-- Submenu -->
                                 
                             </li>
                     
                         
+                            
+
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="" 
-                                    href="/links"  >
-                                    
-                                        
-                                            <i class="fa-regular fa-link"></i>
-                                        
-                                        LINKS
+                                <a class=""
+                                   href="/links"
+                                        >
+                                    <i class="fa-regular fa-link fa-fw"></i>
+                                    LINKS
                                     
                                 </a>
+
                                 <!-- Submenu -->
                                 
                             </li>
                     
                         
+                            
+
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="" 
-                                    href="/masonry/"  >
-                                    
-                                        
-                                            <i class="fa-solid fa-camera"></i>
-                                        
-                                        GALLERY
+                                <a class=""
+                                   href="/masonry/"
+                                        >
+                                    <i class="fa-solid fa-camera fa-fw"></i>
+                                    GALLERY
                                     
                                 </a>
+
                                 <!-- Submenu -->
                                 
                             </li>
@@ -292,7 +464,8 @@ mjx-container[display="true"] + br {
             <!-- Mobile -->
             <div class="mobile">
                 
-                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
                 
                 <div class="icon-item navbar-bar">
                     <div class="navbar-bar-middle"></div>
@@ -302,56 +475,85 @@ mjx-container[display="true"] + br {
     </div>
 
     <!-- Mobile drawer -->
-    <div class="navbar-drawer w-full absolute top-0 left-0 bg-background-color">
-        <ul class="drawer-navbar-list flex flex-col justify-start items-center">
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
             
                 
-                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
-                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group active" 
-                        href="/"  >
-                             
-                                
-                                    <i class="fa-regular fa-house"></i>
-                                
-                                HOME
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
                     
-            
-                
-                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
-                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
-                        href="/links"  >
-                             
-                                
-                                    <i class="fa-regular fa-link"></i>
-                                
-                                LINKS
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                    
-            
-                
-                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
-                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
-                        href="/masonry/"  >
-                             
-                                
-                                    <i class="fa-solid fa-camera"></i>
-                                
-                                GALLERY
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                    
-            
 
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/links"
+                        >
+                            <span>
+                                LINKS
+                            </span>
+                            
+                                <i class="fa-regular fa-link fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/masonry/"
+                        >
+                            <span>
+                                GALLERY
+                            </span>
+                            
+                                <i class="fa-solid fa-camera fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
         </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
     </div>
 
     <div class="window-mask"></div>
@@ -367,28 +569,29 @@ mjx-container[display="true"] + br {
                 <div class="home-sidebar-container">
     <div class="sticky-container sticky">
         
+        
             <div class="sidebar-content">
                 <div class="avatar flex justify-center">
-                    <img src="/images/avatar.png">
-                </div>
+    <img src="/images/avatar.png">
+</div>
                 <div class="author flex flex-col justify-center my-2.5 mx-0">
-                    <div class="name">Zielorem</div>
-                    
-                </div>
-                <div class="statistics">
-                    <a class="item" href="/tags">
-                        <div class="number">3</div>
-                        <div class="label">Tags</div>
-                    </a>
-                    <a class="item" href="/categories">
-                        <div class="number">2</div>
-                        <div class="label">Categories</div>
-                    </a>
-                    <a class="item" href="/archives">
-                        <div class="number">16</div>
-                        <div class="label">Posts</div>
-                    </a>
-                </div>
+    <div class="name">Zielorem</div>
+    
+</div>
+                <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
             </div>
             
                 <div class="sidebar-links"   marginTop >
@@ -452,27 +655,27 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2023/12/19/beliefs-interrelated/">
+                            信念系统及其对观点的影响
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2023/11/23/hypernetwork-polarization-2/">
-                        极端情绪传播下改进的Hegselmann–Krause模型
-                    </a>
-                </h3>
+                    <div class="home-article-content markdown-body">
+                        
+                            在过去的几十年里，在科学领域积累了大量关于人类感知世界、决策和构建信念的方式的知识。其中的关键发现之一即观点与信念相互关联，并被组织为一个具有明确特征的信念系统，其特征如下：
 
-                <div class="home-article-content markdown-body">
-                    
-                        通常，人们在形成观点时，不会简单地接受或无视他人的意见，而是在某种程度上会参考其他人的想法。假设群体中有个个体，个体在时刻的观点值为，其中，群体在时刻的观点值用矢量表示。表示个体在个体产生的影响程度，其中且。个体在时刻的观点更新为
+一致性：个体试图维持一种信念体系，体系中的元素相互支持或独立存在。当这种...
+                        
+                    </div>
 
-此时个体在时刻的...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Thu Nov 23 2023 14:08:17 GMT+0800">
+            <span class="home-article-date" data-date="Tue Dec 19 2023 14:27:52 GMT+0800">
                 
-                    2023-11-23
+                    2023-12-19
                 
             </span>
         </span>
@@ -484,7 +687,7 @@ mjx-container[display="true"] + br {
                     
                         <li>
                             
-                            <a href="/tags/polarization/">polarization</a>&nbsp;
+                            <a href="/tags/psychology/">psychology</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -492,9 +695,10 @@ mjx-container[display="true"] + br {
         
     </div>
 
-    <a href="/2023/11/23/hypernetwork-polarization-2/">Read more<span class="seo-reader-text">极端情绪传播下改进的Hegselmann–Krause模型</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/12/19/beliefs-interrelated/">Read more<span class="seo-reader-text">信念系统及其对观点的影响</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -504,20 +708,20 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2023/10/31/hypernetwork-polarization-1/">
+                            超网络下三层基础舆论极化模型构想
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2023/10/31/hypernetwork-polarization-1/">
-                        超网络下三层基础舆论极化模型构想
-                    </a>
-                </h3>
+                    <div class="home-article-content markdown-body">
+                        
+                            过往研究通常使用单层图网络探究舆论极化相关问题，选民模型、Hegselmann–Krause模型、Deffaunt模型等经典的舆论模型在模拟舆论网络时存在共同之处。其均通过节点代表持有观点的个体，节点与节点之间的连接代表个体之间观点的交互，这种交互可...
+                        
+                    </div>
 
-                <div class="home-article-content markdown-body">
-                    
-                        过往研究通常使用单层图网络探究舆论极化相关问题，选民模型、Hegselmann–Krause模型、Deffaunt模型等经典的舆论模型在模拟舆论网络时存在共同之处。其均通过节点代表持有观点的个体，节点与节点之间的连接代表个体之间观点的交互，这种交互可...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Tue Oct 31 2023 11:22:03 GMT+0800">
@@ -545,6 +749,7 @@ mjx-container[display="true"] + br {
     <a href="/2023/10/31/hypernetwork-polarization-1/">Read more<span class="seo-reader-text">超网络下三层基础舆论极化模型构想</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -554,20 +759,20 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2023/07/13/extreme-polarization/">
+                            互联网极端情绪传播的传染病模型
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2023/07/13/extreme-polarization/">
-                        互联网极端情绪传播的传染病模型
-                    </a>
-                </h3>
+                    <div class="home-article-content markdown-body">
+                        
+                            当前，互联网的去抑制效应愈发明显，去抑制效应下产生的极端情绪通过社交网络传播。在此种效应与环境下，个体在线表达的意见不一定反映个体的实际意见，而趋向于放大个人对某事的实际感受，此种现象被称为意见放大。放大后的意见相较个体的实际意见更为强烈，此种行为旨...
+                        
+                    </div>
 
-                <div class="home-article-content markdown-body">
-                    
-                        当前，互联网的去抑制效应愈发明显，去抑制效应下产生的极端情绪通过社交网络传播。在此种效应与环境下，个体在线表达的意见不一定反映个体的实际意见，而趋向于放大个人对某事的实际感受，此种现象被称为意见放大。放大后的意见相较个体的实际意见更为强烈，此种行为旨...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Thu Jul 13 2023 20:40:22 GMT+0800">
@@ -611,6 +816,7 @@ mjx-container[display="true"] + br {
     <a href="/2023/07/13/extreme-polarization/">Read more<span class="seo-reader-text">互联网极端情绪传播的传染病模型</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -620,27 +826,33 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2023/01/18/permutations-and-combinations/">
+                            通过排列组合问题理解回溯算法
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2023/01/18/permutations-and-combinations/">
-                        通过排列组合问题理解回溯算法
-                    </a>
-                </h3>
+                    <div class="home-article-content markdown-body">
+                        
+                            排列
+  
+    
+      Question
 
-                <div class="home-article-content markdown-body">
-                    
-                        排列Question
-给定一个不含重复数字的数组nums，返回其所有可能的元素不重复的全排列。
+    
+    
+      给定一个不含重复数字的数组nums，返回其所有可能的元素不重复的全排列。
+
+    
+  
 
 
+以数组[1, 2, 3]为例，其总共可能含有的全排列数为 个。一般情...
+                        
+                    </div>
 
-以数组[1, 2, 3]为例，其总共可能含有的全排列数为 个。一般情况下，我们会逐个选择排列中的元素以组成新排列。例如：
-
-首先选择1作为排列的第一...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Wed Jan 18 2023 00:58:45 GMT+0800">
@@ -684,6 +896,7 @@ mjx-container[display="true"] + br {
     <a href="/2023/01/18/permutations-and-combinations/">Read more<span class="seo-reader-text">通过排列组合问题理解回溯算法</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -693,27 +906,30 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2023/01/15/sealed-floors/">
+                            通过“溟痕”理解多源BFS
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2023/01/15/sealed-floors/">
-                        通过“溟痕”理解多源BFS
-                    </a>
-                </h3>
+                    <div class="home-article-content markdown-body">
+                        
+                            
+  
+    最近打舟肉鸽溟痕关卡“蔓延”时，看到溟痕扩散的方式感觉有点似曾相识，因此有想到如下问题。
 
-                <div class="home-article-content markdown-body">
-                    
-                        最近打舟肉鸽溟痕关卡“蔓延”时，看到溟痕扩散的方式感觉有点似曾相识，因此有想到如下问题。
-
+  
 
 
 我们假设关卡地板为m*n的网格grid，每个单元格可能存在以下值及其对应状态：
 
 值为0代表特殊地块，溟痕无法扩散至该地形上
-值为1代表干净地块（即未被扩...
-                    
-                </div>
+值为1...
+                        
+                    </div>
 
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Sun Jan 15 2023 19:35:42 GMT+0800">
@@ -757,6 +973,7 @@ mjx-container[display="true"] + br {
     <a href="/2023/01/15/sealed-floors/">Read more<span class="seo-reader-text">通过“溟痕”理解多源BFS</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -766,23 +983,29 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2023/01/14/fill-pointer-of-trees/">
+                            关于完美二叉树的指针填充策略
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2023/01/14/fill-pointer-of-trees/">
-                        关于完美二叉树的指针填充策略
-                    </a>
-                </h3>
+                    <div class="home-article-content markdown-body">
+                        
+                            
+  
+    
+      Question
 
-                <div class="home-article-content markdown-body">
-                    
-                        Question
-
+    
+    
+      
 给定一个完美二叉树，其所有叶子结点均在同一层，且每个父节点均有两个子节点，其定义为
-123456struct Node&#123;  int val;  Node *left;  Node *right;  Node *next;...
-                    
-                </div>
+123456struct Node&#123;  int val;  Node *...
+                        
+                    </div>
 
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Sat Jan 14 2023 23:34:36 GMT+0800">
@@ -826,6 +1049,7 @@ mjx-container[display="true"] + br {
     <a href="/2023/01/14/fill-pointer-of-trees/">Read more<span class="seo-reader-text">关于完美二叉树的指针填充策略</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -835,22 +1059,28 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2023/01/13/island-proportion/">
+                            通过BFS/DFS解决岛屿最大面积问题
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2023/01/13/island-proportion/">
-                        通过BFS/DFS解决岛屿最大面积问题
-                    </a>
-                </h3>
+                    <div class="home-article-content markdown-body">
+                        
+                            
+  
+    
+      Question
 
-                <div class="home-article-content markdown-body">
-                    
-                        Question
+    
+    
+      
+当前存在一个大小为m*n的二进制矩阵grid，假设岛屿是由一些相邻的1构成的组合，即两个1必须在水平或垂直的四个方向上相邻（假设grid外的位置全为0），岛屿的面积即...
+                        
+                    </div>
 
-当前存在一个大小为m*n的二进制矩阵grid，假设岛屿是由一些相邻的1构成的组合，即两个1必须在水平或垂直的四个方向上相邻（假设grid外的位置全为0），岛屿的面积即岛上值为1的单元格的数目。计算并返回grid中最大的岛屿面积。若...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Fri Jan 13 2023 14:57:50 GMT+0800">
@@ -894,6 +1124,7 @@ mjx-container[display="true"] + br {
     <a href="/2023/01/13/island-proportion/">Read more<span class="seo-reader-text">通过BFS/DFS解决岛屿最大面积问题</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -903,24 +1134,32 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2023/01/12/slide-window-ascii/">
+                            通过滑动窗口确定无重复字符的最长子串
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2023/01/12/slide-window-ascii/">
-                        通过滑动窗口确定无重复字符的最长子串
-                    </a>
-                </h3>
+                    <div class="home-article-content markdown-body">
+                        
+                            
+  
+    
+      Question
 
-                <div class="home-article-content markdown-body">
-                    
-                        Question
-给定一个字符串s，编写算法找出其中不含有重复字符的最长子串的长度。
+    
+    
+      给定一个字符串s，编写算法找出其中不含有重复字符的最长子串的长度。
 
+    
+  
 
-题设要求子串中不出现重复字符，因此可以在遍历过程中将出现过的字符的位置记录在数组中。在出现过的字符再次出现后，当前子串便不再满足条件，因此需要更新子串的起始位置...
-                    
-                </div>
+题设要求子串中不出现重复字符，因此可以在遍历过程中将出现过的字符的位置记录在数组...
+                        
+                    </div>
 
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Thu Jan 12 2023 14:32:23 GMT+0800">
@@ -964,6 +1203,7 @@ mjx-container[display="true"] + br {
     <a href="/2023/01/12/slide-window-ascii/">Read more<span class="seo-reader-text">通过滑动窗口确定无重复字符的最长子串</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -973,24 +1213,32 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2023/01/08/rotate-array/">
+                            数组的翻转与轮转
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2023/01/08/rotate-array/">
-                        数组的翻转与轮转
-                    </a>
-                </h3>
+                    <div class="home-article-content markdown-body">
+                        
+                            
+  
+    
+      Question
 
-                <div class="home-article-content markdown-body">
-                    
-                        Question
-当前存在一个数组nums，编写算法将数组中的  个元素向右轮转  个位置（ 为非负数）。
+    
+    
+      当前存在一个数组nums，编写算法将数组中的  个元素向右轮转  个位置（ 为非负数）。
 
+    
+  
 
-为了避免直接轮转导致的数组元素覆盖，可以创建新的数组从而将中的元素存储至正确的位置，尔后再将其赋值至原数组中。在轮转过程中，当数组元素向右...
-                    
-                </div>
+为了避免直接轮转导致的数组元素覆盖，可以创建新的数组从而将...
+                        
+                    </div>
 
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Sun Jan 08 2023 14:47:42 GMT+0800">
@@ -1034,6 +1282,7 @@ mjx-container[display="true"] + br {
     <a href="/2023/01/08/rotate-array/">Read more<span class="seo-reader-text">数组的翻转与轮转</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -1043,24 +1292,32 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2023/01/08/square-sort/">
+                            利用双指针思想解决有序数组的平方排序问题
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2023/01/08/square-sort/">
-                        利用双指针思想解决有序数组的平方排序问题
-                    </a>
-                </h3>
+                    <div class="home-article-content markdown-body">
+                        
+                            
+  
+    
+      Question
 
-                <div class="home-article-content markdown-body">
-                    
-                        Question
-当前存在一个以非递减顺序排序的整数数组nums，编写算法返回每个数字的平方所组成的新数组，且同样按照非递减顺序排序。
+    
+    
+      当前存在一个以非递减顺序排序的整数数组nums，编写算法返回每个数字的平方所组成的新数组，且同样按照非递减顺序排序。
 
+    
+  
 
-本题最简单的思路即对每个数组元素均平方后的数组进行再排序，其时间复杂度为 。但由题意可知，有序数组最左端与最右...
-                    
-                </div>
+本题最简单的思路即对每个数组元...
+                        
+                    </div>
 
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Sun Jan 08 2023 11:42:16 GMT+0800">
@@ -1104,11 +1361,12 @@ mjx-container[display="true"] + br {
     <a href="/2023/01/08/square-sort/">Read more<span class="seo-reader-text">利用双指针思想解决有序数组的平方排序问题</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
     </ul>
 
-    <div class="home-paginator">
+    <div class="home-paginator px-7 py-5">
         <div class="paginator">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa-regular fa-angle-right"></i></a>
 </div>
@@ -1156,7 +1414,7 @@ mjx-container[display="true"] + br {
         
         <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
             <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
-            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.5.0</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.0</a></span>
         </div>
         
         
@@ -1274,7 +1532,19 @@ mjx-container[display="true"] + br {
 </main>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/Swup.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupSlideTheme.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupScriptsPlugin.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupProgressPlugin.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupScrollPlugin.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupPreloadPlugin.min.js"></script>
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
 <script>
     const swup = new Swup({
         plugins: [
@@ -1300,50 +1570,109 @@ mjx-container[display="true"] + br {
 
 
 
-<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/imageViewer.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/utils.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/main.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/navbarShrink.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/scrollTopBottom.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/lightDarkSwitch.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/categoryList.js"></script>
 
+<script src="/js/tools/imageViewer.js" type="module"></script>
 
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/localSearch.js"></script>
+<script src="/js/utils.js" type="module"></script>
 
+<script src="/js/main.js" type="module"></script>
 
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
 
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/codeBlock.js"></script>
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
 
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
 
-
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/lazyload.js"></script>
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/runtime.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/odometer.min.js"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/assets/odometer-theme-minimal.css">
+<script src="/js/layouts/categoryList.js" type="module"></script>
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/Typed.min.js"></script>
-  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/typed.js"></script>
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
 
 
 
 
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/minimasonry.min.js"></script>
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/masonry.js"></script>
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+    
+<script src="/js/libs/minimasonry.min.js"></script>
+
+    
+<script src="/js/plugins/masonry.js" type="module"></script>
+
+
 
 
 
 <div class="post-scripts" data-swup-reload-script>
     
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/anime.min.js"></script>
-        <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/tocToggle.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/toc.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/tabs.js"></script>
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
     
 </div>
 
 
     <div id="aplayer"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/APlayer.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/aplayer.js"></script>
 
+<script src="/js/libs/APlayer.min.js"></script>
+
+
+<script src="/js/plugins/aplayer.js"></script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

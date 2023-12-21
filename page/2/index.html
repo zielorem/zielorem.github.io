@@ -14,7 +14,7 @@
         
         
         
-            <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+            <link rel="preconnect" href="https://cdn.staticfile.org" crossorigin>
         
     
     <!--- Seo Part-->
@@ -46,17 +46,178 @@
         
         Zielorem&#39;s dragon nest
     </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        Zielorem&#39;s dragon nest
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
     
 <link rel="stylesheet" href="/css/style.css">
 
 
     
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/assets/build/styles.css">
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
     
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fonts/fonts.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fonts/Satoshi/satoshi.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fonts/Chillax/chillax.css">
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
     <!--- Font Part-->
     
     
@@ -67,16 +228,24 @@
     
     <script id="hexo-configurations">
     window.config = {"hostname":"zielorem.github.io","root":"/","language":"en","path":"search.xml"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":null,"skip_dirs":[]}},"colors":{"primary":"#4a5eb6","secondary":"#7ec1ff"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":false,"style":"fixed","image":{"light":"/images/banner.png","dark":"/images/banner.png"},"title":"Zielorem's Dragon Nest","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"mini","audios":[{"name":"Carin at the Liquor Store","artist":"The National","url":"/images/The National - Carin at the Liquor Store.mp3","cover":"/images/cover.jpg"}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.5.0","navbar":{"auto_hide":false,"color":{"left":"#7ec1ff","right":"#4a5eb6","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Links":{"path":"/links","icon":"fa-regular fa-link"},"Gallery":{"path":"/masonry/","icon":"fa-solid fa-camera"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"随缘更新中...ww","links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/9/18 11:45:14"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":false,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":null,"skip_dirs":[]}},"colors":{"primary":"#4a5eb6","secondary":"#7ec1ff"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":false,"style":"static","image":{"light":"/images/banner.png","dark":"/images/banner.png"},"title":"Zielorem's Dragon Nest","subtitle":{"text":["Better to run than curse the road."],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"mini","audios":[{"name":"Carin at the Liquor Store","artist":"The National","url":"/images/The National - Carin at the Liquor Store.mp3","cover":"/images/cover.jpg"}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.0","navbar":{"auto_hide":false,"color":{"left":"#7ec1ff","right":"#4a5eb6","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Links":{"path":"/links","icon":"fa-regular fa-link"},"Gallery":{"path":"/masonry/","icon":"fa-solid fa-camera"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"随缘更新中...ww","links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/9/18 11:45:14"};
     window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
     window.data = {"masonry":true};
   </script>
     
     <!--- Fontawesome Part-->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/fontawesome.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/brands.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/solid.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/fontawesome/regular.min.css">
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
     
     
     
@@ -202,9 +371,9 @@ mjx-container[display="true"] + br {
 
     
         <span class="pjax-progress-bar"></span>
-        <span class="swup-progress-icon">
-            <i class="fa-solid fa-circle-notch fa-spin"></i>
-        </span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
     
 </div>
 
@@ -218,7 +387,7 @@ mjx-container[display="true"] + br {
 
         <div class="main-content-header">
             <header class="navbar-container">
-    
+
     <div class="navbar-content">
         <div class="left">
             
@@ -235,49 +404,52 @@ mjx-container[display="true"] + br {
                 <ul class="navbar-list">
                     
                         
+                            
+
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active" 
-                                    href="/"  >
-                                    
-                                        
-                                            <i class="fa-regular fa-house"></i>
-                                        
-                                        HOME
+                                <a class="active"
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
                                     
                                 </a>
+
                                 <!-- Submenu -->
                                 
                             </li>
                     
                         
+                            
+
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="" 
-                                    href="/links"  >
-                                    
-                                        
-                                            <i class="fa-regular fa-link"></i>
-                                        
-                                        LINKS
+                                <a class=""
+                                   href="/links"
+                                        >
+                                    <i class="fa-regular fa-link fa-fw"></i>
+                                    LINKS
                                     
                                 </a>
+
                                 <!-- Submenu -->
                                 
                             </li>
                     
                         
+                            
+
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="" 
-                                    href="/masonry/"  >
-                                    
-                                        
-                                            <i class="fa-solid fa-camera"></i>
-                                        
-                                        GALLERY
+                                <a class=""
+                                   href="/masonry/"
+                                        >
+                                    <i class="fa-solid fa-camera fa-fw"></i>
+                                    GALLERY
                                     
                                 </a>
+
                                 <!-- Submenu -->
                                 
                             </li>
@@ -292,7 +464,8 @@ mjx-container[display="true"] + br {
             <!-- Mobile -->
             <div class="mobile">
                 
-                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
                 
                 <div class="icon-item navbar-bar">
                     <div class="navbar-bar-middle"></div>
@@ -302,56 +475,85 @@ mjx-container[display="true"] + br {
     </div>
 
     <!-- Mobile drawer -->
-    <div class="navbar-drawer w-full absolute top-0 left-0 bg-background-color">
-        <ul class="drawer-navbar-list flex flex-col justify-start items-center">
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
             
                 
-                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
-                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group active" 
-                        href="/"  >
-                             
-                                
-                                    <i class="fa-regular fa-house"></i>
-                                
-                                HOME
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
                     
-            
-                
-                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
-                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
-                        href="/links"  >
-                             
-                                
-                                    <i class="fa-regular fa-link"></i>
-                                
-                                LINKS
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                    
-            
-                
-                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
-                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
-                        href="/masonry/"  >
-                             
-                                
-                                    <i class="fa-solid fa-camera"></i>
-                                
-                                GALLERY
-                            
-                        </a>
-                    </li>
-                    <!-- Submenu -->
-                    
-            
 
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/links"
+                        >
+                            <span>
+                                LINKS
+                            </span>
+                            
+                                <i class="fa-regular fa-link fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/masonry/"
+                        >
+                            <span>
+                                GALLERY
+                            </span>
+                            
+                                <i class="fa-solid fa-camera fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
         </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
     </div>
 
     <div class="window-mask"></div>
@@ -367,28 +569,29 @@ mjx-container[display="true"] + br {
                 <div class="home-sidebar-container">
     <div class="sticky-container sticky">
         
+        
             <div class="sidebar-content">
                 <div class="avatar flex justify-center">
-                    <img src="/images/avatar.png">
-                </div>
+    <img src="/images/avatar.png">
+</div>
                 <div class="author flex flex-col justify-center my-2.5 mx-0">
-                    <div class="name">Zielorem</div>
-                    
-                </div>
-                <div class="statistics">
-                    <a class="item" href="/tags">
-                        <div class="number">3</div>
-                        <div class="label">Tags</div>
-                    </a>
-                    <a class="item" href="/categories">
-                        <div class="number">2</div>
-                        <div class="label">Categories</div>
-                    </a>
-                    <a class="item" href="/archives">
-                        <div class="number">16</div>
-                        <div class="label">Posts</div>
-                    </a>
-                </div>
+    <div class="name">Zielorem</div>
+    
+</div>
+                <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
             </div>
             
                 <div class="sidebar-links"   marginTop >
@@ -452,24 +655,32 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2023/01/07/fast-slow/">
+                            通过快慢指针法定位链表的中间结点
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2023/01/07/fast-slow/">
-                        通过快慢指针法定位链表的中间结点
-                    </a>
-                </h3>
+                    <div class="home-article-content markdown-body">
+                        
+                            
+  
+    
+      Question
 
-                <div class="home-article-content markdown-body">
-                    
-                        Question
-给定一个头结点为head的非空单链表，返回链表的中间结点。若存在两个中间结点，则返回第二个中间结点。
+    
+    
+      给定一个头结点为head的非空单链表，返回链表的中间结点。若存在两个中间结点，则返回第二个中间结点。
 
+    
+  
 
-链表的不足在于其无法通过下标直接访问特定结点，需要逐个遍历结点以定位特定结点。一般情况下，可以将链表中的数据内容逐个遍历至数组...
-                    
-                </div>
+链表的不足在于其无法通过下标直接访问特定结点，...
+                        
+                    </div>
 
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Sat Jan 07 2023 14:18:10 GMT+0800">
@@ -513,6 +724,7 @@ mjx-container[display="true"] + br {
     <a href="/2023/01/07/fast-slow/">Read more<span class="seo-reader-text">通过快慢指针法定位链表的中间结点</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -522,26 +734,30 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2023/01/06/hanoi-tower/">
+                            通过汉诺塔问题理解递归方法
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2023/01/06/hanoi-tower/">
-                        通过汉诺塔问题理解递归方法
-                    </a>
-                </h3>
+                    <div class="home-article-content markdown-body">
+                        
+                            
+  
+    
+      Question
 
-                <div class="home-article-content markdown-body">
-                    
-                        Question
-
+    
+    
+      
 假设存在A、B、C三根杆，汉诺塔问题即需要将位置A上的圆盘全部移动至位置C，在移动过程中每次仅能移动一个圆盘，且三个位置上的圆盘状态始终保持为大盘在下、小盘在上。
 
-
-假设目标汉诺塔为n阶，当n&#x3D;3时，其正常流程如下：
 ...
-                    
-                </div>
+                        
+                    </div>
 
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Fri Jan 06 2023 23:11:42 GMT+0800">
@@ -585,6 +801,7 @@ mjx-container[display="true"] + br {
     <a href="/2023/01/06/hanoi-tower/">Read more<span class="seo-reader-text">通过汉诺塔问题理解递归方法</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -594,21 +811,21 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2022/10/19/view-and-copy/">
+                            Python中的赋值、视图、副本与拷贝
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2022/10/19/view-and-copy/">
-                        Python中的赋值、视图、副本与拷贝
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        数组对象在创建后会存在唯一标识数组内容的通用标识符（即id值）与其数组内容在内存中的存储地址，通过不同方式创建基于原数组的新数组会在这两个属性的基础上产生不同的结果。
+                    <div class="home-article-content markdown-body">
+                        
+                            数组对象在创建后会存在唯一标识数组内容的通用标识符（即id值）与其数组内容在内存中的存储地址，通过不同方式创建基于原数组的新数组会在这两个属性的基础上产生不同的结果。
 赋值与无拷贝将原数组直接赋值给新数组后，新数组同原数组的标识符与存储地址一致。因此...
-                    
-                </div>
+                        
+                    </div>
 
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Wed Oct 19 2022 14:47:15 GMT+0800">
@@ -652,6 +869,7 @@ mjx-container[display="true"] + br {
     <a href="/2022/10/19/view-and-copy/">Read more<span class="seo-reader-text">Python中的赋值、视图、副本与拷贝</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -661,24 +879,24 @@ mjx-container[display="true"] + br {
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2022/10/14/numpy/">
+                            Numpy库的主要使用方法
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2022/10/14/numpy/">
-                        Numpy库的主要使用方法
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        import numpy as np
+                    <div class="home-article-content markdown-body">
+                        
+                            import numpy as np
 数组属性
 Numpy数组（即ndarray）的维度称为秩，一维数组的秩为 1，二维数组的秩为 2
 每个线性的数组称为轴（即维度），二维数组相当于两个一维数组，而第一个一维数组中的每个元素又为一个一维数组
 对于一维...
-                    
-                </div>
+                        
+                    </div>
 
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Fri Oct 14 2022 17:52:51 GMT+0800">
@@ -722,6 +940,7 @@ Numpy数组（即ndarray）的维度称为秩，一维数组的秩为 1，二维
     <a href="/2022/10/14/numpy/">Read more<span class="seo-reader-text">Numpy库的主要使用方法</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -731,21 +950,21 @@ Numpy数组（即ndarray）的维度称为秩，一维数组的秩为 1，二维
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2022/10/11/pandas/">
+                            Pandas库的主要使用方法
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2022/10/11/pandas/">
-                        Pandas库的主要使用方法
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        import pandas as pd
+                    <div class="home-article-content markdown-body">
+                        
+                            import pandas as pd
 SeriesSeries由index和列组成，类似于一维数组（或数据库中的id与数据实体）pandas.Series(&lt;data&gt;, &lt;index&gt;, &lt;dtype&gt;, &l...
-                    
-                </div>
+                        
+                    </div>
 
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Tue Oct 11 2022 14:37:29 GMT+0800">
@@ -789,6 +1008,7 @@ SeriesSeries由index和列组成，类似于一维数组（或数据库中的id�
     <a href="/2022/10/11/pandas/">Read more<span class="seo-reader-text">Pandas库的主要使用方法</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
             <li class="home-article-item">
@@ -798,22 +1018,22 @@ SeriesSeries由index和列组成，类似于一维数组（或数据库中的id�
                 
 
                 
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2022/09/18/my-first-blog/">
+                            Encantado de conocerte en el mundo
+                        </a>
+                    </h3>
 
-                <h3 class="home-article-title">
-                    <a href="/2022/09/18/my-first-blog/">
-                        Encantado de conocerte en el mundo
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        成功建站！极简风格的小博客，以后将自己的学习过程以及其中的小心得和小思考码在这里ww
+                    <div class="home-article-content markdown-body">
+                        
+                            成功建站！极简风格的小博客，以后将自己的学习过程以及其中的小心得和小思考码在这里ww
 1print(&#x27;hello world!&#x27;)
 
-                    
-                </div>
+                        
+                    </div>
 
-                <div class="home-article-meta-info-container">
+                    <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
             <span class="home-article-date" data-date="Sun Sep 18 2022 17:55:43 GMT+0800">
@@ -829,11 +1049,12 @@ SeriesSeries由index和列组成，类似于一维数组（或数据库中的id�
     <a href="/2022/09/18/my-first-blog/">Read more<span class="seo-reader-text">Encantado de conocerte en el mundo</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
+                </div>
             </li>
         
     </ul>
 
-    <div class="home-paginator">
+    <div class="home-paginator px-7 py-5">
         <div class="paginator">
     <a class="extend prev" rel="prev" href="/"><i class="fa-regular fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
 </div>
@@ -881,7 +1102,7 @@ SeriesSeries由index和列组成，类似于一维数组（或数据库中的id�
         
         <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
             <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
-            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.5.0</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.0</a></span>
         </div>
         
         
@@ -999,7 +1220,19 @@ SeriesSeries由index和列组成，类似于一维数组（或数据库中的id�
 </main>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/Swup.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupSlideTheme.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupScriptsPlugin.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupProgressPlugin.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupScrollPlugin.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/SwupPreloadPlugin.min.js"></script>
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
 <script>
     const swup = new Swup({
         plugins: [
@@ -1025,50 +1258,109 @@ SeriesSeries由index和列组成，类似于一维数组（或数据库中的id�
 
 
 
-<script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/imageViewer.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/utils.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/main.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/navbarShrink.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/scrollTopBottom.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/lightDarkSwitch.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/categoryList.js"></script>
 
+<script src="/js/tools/imageViewer.js" type="module"></script>
 
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/localSearch.js"></script>
+<script src="/js/utils.js" type="module"></script>
 
+<script src="/js/main.js" type="module"></script>
 
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
 
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/codeBlock.js"></script>
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
 
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
 
-
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/lazyload.js"></script>
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/runtime.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/odometer.min.js"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/assets/odometer-theme-minimal.css">
+<script src="/js/layouts/categoryList.js" type="module"></script>
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/Typed.min.js"></script>
-  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/typed.js"></script>
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
 
 
 
 
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/minimasonry.min.js"></script>
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/masonry.js"></script>
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+    
+<script src="/js/libs/minimasonry.min.js"></script>
+
+    
+<script src="/js/plugins/masonry.js" type="module"></script>
+
+
 
 
 
 <div class="post-scripts" data-swup-reload-script>
     
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/anime.min.js"></script>
-        <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/tools/tocToggle.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/layouts/toc.js"></script><script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/tabs.js"></script>
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
     
 </div>
 
 
     <div id="aplayer"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/libs/APlayer.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-theme-redefine/2.5.0/js/plugins/aplayer.js"></script>
 
+<script src="/js/libs/APlayer.min.js"></script>
+
+
+<script src="/js/plugins/aplayer.js"></script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
