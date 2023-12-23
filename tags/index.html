@@ -473,14 +473,14 @@
 		<ul class="tag-list" data-show-value="true">
 			
 				<li>
-					<a data-weight="1" href="/tags/psychology/">
-						<i class="fa-solid fa-hashtag"></i>psychology
+					<a data-weight="2" href="/tags/polarization/">
+						<i class="fa-solid fa-hashtag"></i>polarization
 					</a>
 				</li>
 			
 				<li>
-					<a data-weight="2" href="/tags/polarization/">
-						<i class="fa-solid fa-hashtag"></i>polarization
+					<a data-weight="1" href="/tags/psychology/">
+						<i class="fa-solid fa-hashtag"></i>psychology
 					</a>
 				</li>
 			
@@ -786,5 +786,20 @@
 <script src="/js/plugins/aplayer.js"></script>
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
